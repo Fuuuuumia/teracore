@@ -5,7 +5,7 @@
   <a href="/" class="teraCore">teraCore</a>
   <nav>
     <a href="/">Home</a>
-    <a href="/New Log">New log</a>
+    <a href="/new">New log</a>
     <a href="/about">About Us</a>
     <a href="/contact">お問い合わせ・リクエスト</a>
   </nav>
@@ -22,6 +22,7 @@ header {
   width: 100%;
   background: #222;
   box-sizing: border-box;
+  height: 72px;
  
 }
 

@@ -26,7 +26,7 @@
 </script>
 
 <aside>
-  <a href="/" class="Categories">Categories</a>
+  <a href="/categories" class="Categories">Categories</a>
 
   {#each letters as letter}
     <div class="category-group">
@@ -44,14 +44,15 @@
 
 /* サイドバー全体 */
 aside {
-  width: 200px;
+  width: 240px;
   padding: 1rem;
   background: #e0e0e0; /* 少し落ち着かせた灰色 */
-  height: 100vh;
+ height: calc(100vh - 72px); /* ヘッダー高さ分を引く */
+
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 /* タイトル */
