@@ -1,6 +1,11 @@
 import adapter from '@sveltejs/adapter-static';
+import { mdsvex } from 'mdsvex';
 
 const config = {
+	extensions: ['.svelte', '.md'],
+
+  	preprocess: mdsvex(),
+
 	kit: {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
