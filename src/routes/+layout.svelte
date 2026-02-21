@@ -1,11 +1,23 @@
-<script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-
-	let { children } = $props();
+<script>
+  import Header from '$lib/components/Header.svelte';
+  import Sidebar from '$lib/components/Sidebar.svelte';
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<Header />
 
-{@render children()}
+<div class="container">
+  <Sidebar />
+  <main>
+    <slot />
+  </main>
+</div>
+
+<style>
+  .container {
+    display: flex;
+  }
+  main {
+    flex: 1;
+    padding: 2rem;
+  }
+</style>
