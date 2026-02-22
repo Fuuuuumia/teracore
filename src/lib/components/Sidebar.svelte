@@ -8,7 +8,7 @@
     { name: 'OBS Studio', path: `${base}/blog/obs-studio` },
     { name: 'Android Studio', path: `${base}/blog/android-studio` },
 
-    { name: 'PA', path: `${base}/blog/public-adress-system` },
+    { name: 'PA', path: `${base}/blog/public-address-system` },
     { name: 'SveltKit', path: `${base}/blog/sveltekit` }
     
     
