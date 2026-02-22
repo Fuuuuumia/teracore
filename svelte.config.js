@@ -5,7 +5,15 @@ const config = {
   extensions: ['.svelte', '.md'],
   preprocess: mdsvex(),
   kit: {
-    adapter: adapter()
+    adapter: adapter({
+      pages:'build',
+      assets: 'build',
+
+      fallback: 'index.html'
+    }),
+    paths: {
+      base: '/teracore'
+    }
   }
 };
 
