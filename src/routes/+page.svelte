@@ -35,8 +35,9 @@
 <style>
 .hero {
   position: relative;
-  width: 100%;
+  width: auto;
  height: calc(100vh - 72px); /* ヘッダー高さ分を引く */
+  margin: 6px;
   background-color: #000;
   color: #fff;
   display: flex;
