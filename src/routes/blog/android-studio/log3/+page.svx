@@ -1,0 +1,81 @@
+# Android Studio 入門ガイド
+
+## 概要
+
+**Android Studio** は、Google公式のAndroidアプリケーション開発統合開発環境（IDE）です。Javaまたはkotlinを使用してAndroidアプリを効率的に開発できます。
+
+## 主な機能
+
+### 1. プロジェクト管理
+- 自動生成されるプロジェクト構造
+- Gradle ビルドシステムの統合
+- 依存関係の簡単管理
+
+### 2. エディタ
+- コード補完（Auto-completion）
+- リアルタイムエラーチェック
+- Refactoring ツール
+
+### 3. エミュレータ
+- 実機なしにアプリのテストが可能
+- 複数の端末サイズをシミュレート
+- 様々なAndroidバージョンに対応
+
+### 4. デバッグツール
+- ブレークポイント設定
+- Logcat によるログ確認
+- メモリ使用状況の監視
+
+## インストール手順
+
+1. [Android Studio 公式サイト](https://developer.android.com/studio)からダウンロード
+2. インストーラーを実行
+3. Android SDK をインストール
+4. エミュレータの設定
+
+## 簡単なプロジェクト作成例
+
+```
+File > New > New Project
+  └─ Select Project Template
+      └─ Empty Views Activity
+         └─ Finish
+```
+
+## ショートカットキー（便利な操作）
+
+| キー | 機能 |
+|------|------|
+| `Ctrl + Space` | コード補完 |
+| `Alt + Enter` | クイックフィックス |
+| `Ctrl + /` | コメント切り替え |
+| `Shift + F6` | リネーム |
+
+## よく使う UI パネル
+
+- **Project**: ファイル構造表示
+- **Logcat**: ログ出力確認
+- **Profiler**: パフォーマンス分析
+- **AVD Manager**: エミュレータ管理
+
+## トラブルシューティング
+
+### エミュレータが遅い場合
+- **解決策**: ハードウェアアクセラレーションを有効化
+  - AVD Manager → Edit → GPU を有効に
+
+### ビルドに時間がかかる場合
+- **解決策**: Gradle キャッシュをクリア
+  ```bash
+  ./gradlew clean
+  ```
+
+## まとめ
+
+Android Studio は強力な開発ツールです。最初は複雑に見えるかもしれませんが、機能を理解することで開発効率が大幅に向上します。
+
+---
+
+**参考リンク:**
+- [Android Developer](https://developer.android.com/)
+- [Android Studio Documentation](https://developer.android.com/studio/intro)
