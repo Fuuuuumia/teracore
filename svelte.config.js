@@ -12,7 +12,7 @@
         fallback: '404.html'
       }),
       paths: {
-        base: process.argv.includes('dev') ? '' : '/teracore'
+        base: '/teracore'
       }
     }
   };
