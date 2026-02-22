@@ -10,6 +10,7 @@
     { name: 'PA', path: '/blog/public-adress-system' },
     { name: 'SveltKit', path: '/blog/sveltekit' }
     
+    
   ];
 
   // アルファベット順にグループ化
@@ -44,24 +45,34 @@
 
 /* サイドバー全体 */
 aside {
-  width: 240px;
+  position: fixed;
+  top: 60px;        /* ヘッダーの高さ分下げる */
+  left: 0;
+  width: 200px;
   padding: 1rem;
-  background: #e0e0e0; /* 少し落ち着かせた灰色 */
- height: calc(100vh - 72px); /* ヘッダー高さ分を引く */
-
+  background: #ededf6; /* 少し落ち着かせた灰色 */
+  height: calc(100vh - 60px); /* ヘッダー高さ分を引く */
+  border-right: 0.1rem solid #00316010 ;  
+  border-bottom: 0.1rem solid #00316010 ;  
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  overflow-y: auto;    
+
+
+}
+
+aside::-webkit-scrollbar {
+  width: 0px;
 }
 
 /* タイトル */
 .Categories {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
-  color: #222;          /* 落ち着いた濃い色 */
-  margin-bottom: 2rem;
+  color: #003160;          /* 落ち着いた濃い色 */
 }
 
 /* リンクリスト */
@@ -77,7 +88,7 @@ ul {
 /* リンク装飾 */
 ul li a {
   text-decoration: none;
-  color: #444;              /* 少し淡い文字色 */
+  color: #255982;              /* 少し淡い文字色 */
   font-weight: 500;
   position: relative;
   padding: 0.25rem 0.5rem;
@@ -85,9 +96,14 @@ ul li a {
   border-right: 0.25rem solid transparent; /* 現在ページ用 */
 }
 
+.category-group{
+  color: #003160;
+  font-weight: normal;
+}
+
 /* ホバー時 */
 ul li a:hover {
-  color: #ff8800;           /* 強調色 */
+  color: #ffbb00;           /* 強調色 */
 }
 
 /* 下線アニメーション */
@@ -98,7 +114,7 @@ ul li a::after {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ff8800;
+  background-color: #ffbb00;
   transition: width 0.3s;
 }
 
@@ -108,7 +124,7 @@ ul li a:hover::after {
 
 /* 現在ページ */
 ul li a.active {
-  color: #d67c00;            /* 落ち着いたオレンジ */
-  border-right: 0.25rem solid #d67c00;
+  color: #ff9900;            /* 落ち着いたオレンジ */
+  border-right: 0.25rem solid #ff9900;
 }
 </style>

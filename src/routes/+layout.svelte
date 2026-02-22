@@ -19,6 +19,8 @@
   main {
     flex: 1;
     padding:0;
+    margin-top: 60px;   /* ヘッダー分 */
+    margin-left: 200px; /* サイドバー分 */
   }
 
   html, body {

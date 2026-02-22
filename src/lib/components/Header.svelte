@@ -14,25 +14,28 @@
 <style>
 /* ヘッダー全体 */
 header {
-  position: relative; /* タイトル絶対配置用 */
+  position: fixed; /* タイトル絶対配置用 */
   display: flex;
+  top: 0;
+  left: 0;
   justify-content: center; /* navを中央に配置 */
   align-items: center;     /* 縦中央 */
-  padding: 1.5rem;
+  padding: 1rem;
   width: 100%;
-  background: #222;
+  background: white;
+  border-bottom: 0.1rem solid #003160 ;  
   box-sizing: border-box;
-  height: 72px;
- 
+  height: 60px;
+  z-index: 1000; /* ← これが重要 */
 }
 
 /* タイトル左端 */
 .teraCore {
   position: absolute;      /* 左端に固定 */
-  left: 2rem;              /* 左余白 */
-  font-size: 2.5rem;
+  left: 3rem;              /* 左余白 */
+  font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: #255982;
   text-decoration: none;
 }
 
@@ -44,7 +47,7 @@ nav {
 
 /* リンク共通 */
 nav a {
-  color: white;
+  color: #003160;
   text-decoration: none;
   font-weight: 500;
   position: relative;
