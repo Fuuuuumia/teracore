@@ -2,7 +2,7 @@
 import { mdsvex } from 'mdsvex';
 
 const config = {
-  extensions: ['.svelte', '.md'],
+  extensions: ['.svelte', '.svx'],
   preprocess: mdsvex(),
   kit: {
     adapter: adapter({
