@@ -1,5 +1,5 @@
 <script>
-  
+  import { base } from '$app/paths';
   const categories = [
     { name: 'AVIUtill', path: '/blog/aviutill' },
     { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: '/blog/blackmagic-atem' },
@@ -27,14 +27,14 @@
 </script>
 
 <aside>
-  <a href="/categories" class="Categories">Categories</a>
+  <a href="{base}/categories" class="Categories">Categories</a>
 
   {#each letters as letter}
     <div class="category-group">
       <h4>{letter}</h4>
       <ul>
         {#each grouped[letter] as cat}
-          <li><a href={cat.path}>{cat.name}</a></li>
+          <li><a href={`${base}${cat.path}`}>{cat.name}</a></li>
         {/each}
       </ul>
     </div>
