@@ -2,7 +2,7 @@
   
   const categories = [
     { name: 'AVIUtill', path: '/blog/aviutill' },
-    { name: 'BlackMagic ATEM', path: '/blog/blackmagic-atem' },
+    { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: '/blog/blackmagic-atem' },
     { name: 'Davinci Resolve', path: '/blog/davinci-resolve' },
     { name: 'OBS Studio', path: '/blog/obs-studio' },
     { name: 'Android Studio', path: '/blog/android-studio' },
@@ -94,6 +94,9 @@ ul li a {
   padding: 0.25rem 0.5rem;
   transition: color 0.2s, background-color 0.2s;
   border-right: 0.25rem solid transparent; /* 現在ページ用 */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
 }
 
 .category-group{
