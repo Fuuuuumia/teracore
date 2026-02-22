@@ -1,14 +1,15 @@
 <script>
+  import { base } from '$app/paths';
   
   const categories = [
-    { name: 'AVIUtill', path: '/blog/aviutill' },
-    { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: '/blog/blackmagic-atem' },
-    { name: 'Davinci Resolve', path: '/blog/davinci-resolve' },
-    { name: 'OBS Studio', path: '/blog/obs-studio' },
-    { name: 'Android Studio', path: '/blog/android-studio' },
+    { name: 'AVIUtill', path: `${base}/blog/aviutill` },
+    { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: `${base}/blog/blackmagic-atem` },
+    { name: 'Davinci Resolve', path: `${base}/blog/davinci-resolve` },
+    { name: 'OBS Studio', path: `${base}/blog/obs-studio` },
+    { name: 'Android Studio', path: `${base}/blog/android-studio` },
 
-    { name: 'PA', path: '/blog/public-adress-system' },
-    { name: 'SveltKit', path: '/blog/sveltekit' }
+    { name: 'PA', path: `${base}/blog/public-adress-system` },
+    { name: 'SveltKit', path: `${base}/blog/sveltekit` }
     
     
   ];
@@ -27,7 +28,7 @@
 </script>
 
 <aside>
-  <a href="/categories" class="Categories">Categories</a>
+  <a href="{base}/categories" class="Categories">Categories</a>
 
   {#each letters as letter}
     <div class="category-group">

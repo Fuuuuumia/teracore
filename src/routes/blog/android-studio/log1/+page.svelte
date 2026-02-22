@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { base } from '$app/paths';
 
 	// ===== 基本変数 =====
 	let count: number = 0;
@@ -131,5 +132,5 @@ export const count = writable(0);
 <!-- ================= ナビ ================= -->
 <h2>9. ページ遷移</h2>
 <div class="box">
-	<a href="/about">/aboutへ</a>
+	<a href="{base}/about">/aboutへ</a>
 </div>

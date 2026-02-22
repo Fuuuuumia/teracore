@@ -1,13 +1,14 @@
 <script>
+  import { base } from '$app/paths';
 </script>
 
 <header>
-  <a href="/" class="teraCore">teraCore</a>
+  <a href="{base}/" class="teraCore">teraCore</a>
   <nav>
-    <a href="/">Home</a>
-    <a href="/new">New log</a>
-    <a href="/about">About Us</a>
-    <a href="/contact">お問い合わせ・リクエスト</a>
+    <a href="{base}/">Home</a>
+    <a href="{base}/new">New log</a>
+    <a href="{base}/about">About Us</a>
+    <a href="{base}/contact">お問い合わせ・リクエスト</a>
   </nav>
 </header>
 
