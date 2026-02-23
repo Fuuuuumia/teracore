@@ -1,14 +1,14 @@
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$lib/utils/paths';
 </script>
 
 <header>
-  <a href="{base}/" class="teraCore">teraCore</a>
+  <a href={resolve('/')} class="teraCore">teraCore</a>
   <nav>
-    <a href="{base}/">Home</a>
-    <a href="{base}/new">New log</a>
-    <a href="{base}/about">About Us</a>
-    <a href="{base}/contact">お問い合わせ・リクエスト</a>
+    <a href={resolve('/')}>Home</a>
+    <a href={resolve('/new')}>New log</a>
+    <a href={resolve('/about')}>About Us</a>
+    <a href={resolve('/contact')}>お問い合わせ・リクエスト</a>
   </nav>
 </header>
 

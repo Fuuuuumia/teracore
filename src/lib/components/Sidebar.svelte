@@ -1,15 +1,15 @@
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$lib/utils/paths';
   
   const categories = [
-    { name: 'AVIUtill', path: `${base}/blog/aviutill` },
-    { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: `${base}/blog/blackmagic-atem` },
-    { name: 'Davinci Resolve', path: `${base}/blog/davinci-resolve` },
-    { name: 'OBS Studio', path: `${base}/blog/obs-studio` },
-    { name: 'Android Studio', path: `${base}/blog/android-studio` },
+    { name: 'AVIUtill', path: resolve('/blog/aviutill') },
+    { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: resolve('/blog/blackmagic-atem') },
+    { name: 'Davinci Resolve', path: resolve('/blog/davinci-resolve') },
+    { name: 'OBS Studio', path: resolve('/blog/obs-studio') },
+    { name: 'Android Studio', path: resolve('/blog/android-studio') },
 
-    { name: 'PA', path: `${base}/blog/public-address-system` },
-    { name: 'SveltKit', path: `${base}/blog/sveltekit` }
+    { name: 'PA', path: resolve('/blog/public-address-system') },
+    { name: 'SveltKit', path: resolve('/blog/sveltekit') }
     
     
   ];
@@ -28,7 +28,7 @@
 </script>
 
 <aside>
-  <a href="{base}/categories" class="Categories">Categories</a>
+  <a href={resolve('/categories')} class="Categories">Categories</a>
 
   {#each letters as letter}
     <div class="category-group">
