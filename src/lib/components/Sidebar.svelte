@@ -39,7 +39,6 @@
   </div>
 
   {#if $sidebarOpen}
-    <a href={resolve('/categories')} class="Categories" on:click={closeSidebar}>Categories</a>
 
     {#each letters as letter}
       <div class="category-group">
