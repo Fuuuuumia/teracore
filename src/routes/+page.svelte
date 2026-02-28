@@ -1,12 +1,11 @@
 <script>
   const starCount = 100;
 
-  // 星データを乱数で生成
   const stars = Array.from({ length: starCount }, () => ({
-    top: Math.random() * 100 + '%',     // 0~100% のランダム位置
+    top: Math.random() * 100 + '%',
     left: Math.random() * 100 + '%',
-    size: Math.random() * 2 + 1 + 'px', // 1~3px
-    delay: Math.random() * 5 + 's',     // アニメーション開始時間をランダム化
+    size: Math.random() * 2 + 1 + 'px',
+    delay: Math.random() * 5 + 's',
   }));
 </script>
 
@@ -36,7 +35,7 @@
 .hero {
   position: relative;
   width: auto;
- height: calc(100vh - 72px); /* ヘッダー高さ分を引く */
+ height: calc(100vh - 72px);
   margin: 6px;
   background-color: #000;
   color: #fff;
@@ -48,16 +47,15 @@
 }
 
 .hero h1 {
-  font-size: clamp(6rem, 20vw, 12rem); /* 元3~6rem → 約2倍 */
+  font-size: clamp(6rem, 20vw, 12rem);
   margin: 0;
   letter-spacing: 0.05em;
   animation: pulse 9s ease-in-out infinite;
 }
 
-/* モバイル対応 */
 @media (max-width: 600px) {
   .hero h1 {
-    font-size: 3.5rem; /* 小さい画面用に縮小 */
+    font-size: 3.5rem;
   }
 }
 
@@ -86,7 +84,6 @@
   50% { transform: translateY(-30px) rotate(-25deg); }
 }
 
-/* 星 */
 .stars {
   position: absolute;
   width: 100%;
@@ -110,7 +107,6 @@
   50% { opacity: 1; transform: translateY(-10px); }
 }
 
-/* スマホ対応 */
 @media (max-width: 600px) {
   .hero h1 { font-size: 2.5rem; }
   .hero p { font-size: 1rem; }

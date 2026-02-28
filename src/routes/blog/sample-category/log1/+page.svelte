@@ -2,11 +2,9 @@
 	import { onMount } from "svelte";
 	import { base } from '$app/paths';
 
-	// ===== 基本変数 =====
 	let count: number = 0;
 	let name: string = "Fumi";
 
-	// ===== リアクティブ宣言 =====
 	$: doubled = count * 2;
 
 	function increment() {
@@ -22,7 +20,7 @@
 		console.log("Mounted!");
 	});
 
-	// ===== コード表示用文字列 =====
+
 	const loadCode = `
 export const load = async () => {
   return { message: "Hello" };
