@@ -3,50 +3,48 @@
 </script>
 
 <header>
-  <a href={resolve('/')} class="teraCore">teraCore</a>
+  <a href={resolve('/all')} class="teraCore">teraCore</a>
   <nav>
-    <a href={resolve('/')}>Home</a>
-    <a href={resolve('/new')}>New log</a>
+    <a href={resolve('/all')}>Articles</a>
     <a href={resolve('/about')}>About Us</a>
-    <a href={resolve('/contact')}>お問い合わせ・リクエスト</a>
+    <a href={resolve('/contact')}>Contact</a>
   </nav>
 </header>
 
 <style>
-/* ヘッダー全体 */
 header {
-  position: fixed; /* タイトル絶対配置用 */
+  position: fixed; 
   display: flex;
   top: 0;
   left: 0;
-  justify-content: center; /* navを中央に配置 */
-  align-items: center;     /* 縦中央 */
+  justify-content: center;
+  align-items: center;     
   padding: 1rem;
   width: 100%;
   background: white;
   border-bottom: 0.1rem solid #003160 ;  
   box-sizing: border-box;
   height: 60px;
-  z-index: 1000; /* ← これが重要 */
+  z-index: 1000; 
 }
 
-/* タイトル左端 */
+
 .teraCore {
-  position: absolute;      /* 左端に固定 */
-  left: 3rem;              /* 左余白 */
+  position: absolute;     
+  left: 3rem;           
   font-size: 1.5rem;
   font-weight: bold;
   color: #255982;
   text-decoration: none;
 }
 
-/* ナビ中央 */
+
 nav {
   display: flex;
   gap: 2rem;
 }
 
-/* リンク共通 */
+
 nav a {
   color: #003160;
   text-decoration: none;
@@ -56,18 +54,16 @@ nav a {
   transition: color 0.2s;
 }
 
-/* ホバー */
+
 nav a:hover {
   color: #ffcc00;
 }
 
-/* 現在ページ / クリック */
 nav a:active,
 nav a.active {
   color: #ff8800;
 }
 
-/* 下線アニメーション */
 nav a::after {
   content: "";
   position: absolute;

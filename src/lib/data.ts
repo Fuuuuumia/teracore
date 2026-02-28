@@ -51,6 +51,9 @@ export const posts: Post[] = [
 ];
 
 export function getPostsByCategory(categoryId: string): Post[] {
+  if (categoryId === 'all') {
+    return posts;
+  }
   return posts.filter((post) => post.category === categoryId);
 }
 

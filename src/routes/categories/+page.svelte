@@ -6,11 +6,20 @@
     ...cat,
     postCount: getPostsByCategory(cat.id).length,
   }));
+
+  const getTotalCount = () => categoryStats.length;
+  const getStartItem = () => categoryStats.length === 0 ? 0 : 1;
+  const getEndItem = () => categoryStats.length;
 </script>
 
 <div class="categories-container">
   <h1>Categories</h1>
-  <p class="subtitle">Browse articles by category</p>
+
+  {#if categoryStats.length > 0}
+    <div class="results-header">
+      全{getTotalCount()}件中 {getStartItem()}–{getEndItem()}件を表示
+    </div>
+  {/if}
 
   <div class="categories-grid">
     {#each categoryStats as category}
@@ -26,42 +35,46 @@
 
 <style>
   .categories-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2rem
   }
 
   h1 {
-    font-size: 2.5rem;
-    color: #003160;
+    display: block;
+    font-size: 2em;
+        color: #003160;
+    font-weight: bold;
+    unicode-bidi: isolate;
     margin-bottom: 0.5rem;
   }
 
-  .subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 3rem;
-  }
+
 
   .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .category-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100px;
     background: white;
     color: #003160;
     text-decoration: none;
     border-radius: 8px;
     padding: 2rem;
     transition: all 0.3s ease;
+    
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #e5e7eb;
     border-left: 4px solid #003160;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: 160px;
+    cursor: pointer;
   }
 
   .category-card:hover {
@@ -83,6 +96,14 @@
     margin: 0;
     font-size: 0.95rem;
     opacity: 0.9;
+  }
+
+  .results-header {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   @media (max-width: 768px) {

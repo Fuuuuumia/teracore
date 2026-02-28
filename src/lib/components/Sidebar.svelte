@@ -2,7 +2,6 @@
   import { resolve } from '$lib/utils/paths';
   import { categories } from '$lib/data';
   
-  // アルファベット順にグループ化
   let grouped = {};
 
   categories.forEach(cat => {
@@ -14,7 +13,6 @@
     });
   });
 
-  // アルファベット順にソート
   const letters = Object.keys(grouped).sort();
 </script>
 
@@ -35,15 +33,14 @@
 
 <style>
 
-/* サイドバー全体 */
 aside {
   position: fixed;
-  top: 60px;        /* ヘッダーの高さ分下げる */
+  top: 60px;       
   left: 0;
   width: 200px;
   padding: 1rem;
-  background: #ededf6; /* 少し落ち着かせた灰色 */
-  height: calc(100vh - 60px); /* ヘッダー高さ分を引く */
+  background: #ededf6; 
+  height: calc(100vh - 60px); 
   border-right: 0.1rem solid #00316010 ;  
   border-bottom: 0.1rem solid #00316010 ;  
   box-sizing: border-box;
@@ -59,15 +56,15 @@ aside::-webkit-scrollbar {
   width: 0px;
 }
 
-/* タイトル */
+
 .Categories {
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
-  color: #003160;          /* 落ち着いた濃い色 */
+  color: #003160;       
 }
 
-/* リンクリスト */
+
 ul {
   list-style: none;
   padding: 0;
@@ -77,15 +74,14 @@ ul {
   gap: 0.5rem;
 }
 
-/* リンク装飾 */
 ul li a {
   text-decoration: none;
-  color: #255982;              /* 少し淡い文字色 */
+  color: #255982;            
   font-weight: 500;
   position: relative;
   padding: 0.25rem 0.5rem;
   transition: color 0.2s, background-color 0.2s;
-  border-right: 0.25rem solid transparent; /* 現在ページ用 */
+  border-right: 0.25rem solid transparent; 
   word-break: break-word;
   overflow-wrap: anywhere;
   line-height: 1.4;
@@ -96,12 +92,11 @@ ul li a {
   font-weight: normal;
 }
 
-/* ホバー時 */
+
 ul li a:hover {
-  color: #ffbb00;           /* 強調色 */
+  color: #ffbb00;   
 }
 
-/* 下線アニメーション */
 ul li a::after {
   content: "";
   position: absolute;
@@ -117,9 +112,9 @@ ul li a:hover::after {
   width: 100%;
 }
 
-/* 現在ページ */
+
 ul li a.active {
-  color: #ff9900;            /* 落ち着いたオレンジ */
+  color: #ff9900;            
   border-right: 0.25rem solid #ff9900;
 }
 </style>

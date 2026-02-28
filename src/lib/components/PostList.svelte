@@ -55,7 +55,6 @@
 {#if allPosts.length === 0}
   <p class="no-posts">このカテゴリに記事はまだありません</p>
 {:else}
-  <!-- フィルタセクション -->
   <div class="filter-section">
     <div class="filter-row">
       <div class="filter-input">
@@ -80,13 +79,13 @@
     </div>
   </div>
 
-  <!-- 結果表示 -->
+  
   {#if paginatedPosts.length > 0}
     <div class="results-header">
       全{sortedPosts.length}件中 {getStartItem()}–{getEndItem()}件を表示
     </div>
 
-    <!-- グリッドレイアウト -->
+    
     <div class="posts-grid">
       {#each paginatedPosts as post (post.id)}
         <a href={resolve(post.path)} class="post-card-link">
@@ -137,7 +136,7 @@
       {/each}
     </div>
 
-    <!-- ページネーション -->
+    
     {#if totalPages > 1}
       <div class="pagination">
         <button 
@@ -265,7 +264,6 @@
   .post-card-link:hover .post-card {
     border-left-color: #ff9900;
     box-shadow: 0 8px 16px rgba(255, 153, 0, 0.2);
-    transform: translateX(4px);
   }
 
   .card-base {
