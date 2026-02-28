@@ -1,14 +1,34 @@
 <script>
   import { resolve } from '$lib/utils/paths';
+  import { sidebarOpen } from '$lib/stores/sidebar';
+  
+  let mobileMenuOpen = false;
+
+  const toggleMobileMenu = () => {
+    mobileMenuOpen = !mobileMenuOpen;
+  };
+
+  const closeMobileMenu = () => {
+    mobileMenuOpen = false;
+  };
 </script>
 
 <header>
   <a href={resolve('/all')} class="teraCore">teraCore</a>
-  <nav>
-    <a href={resolve('/all')}>Articles</a>
-    <a href={resolve('/categories')}>Categories</a>
-    <a href={resolve('/about')}>About Us</a>
-    <a href={resolve('/contact')}>Contact</a>
+  
+  <button class="mobile-menu-btn" on:click={toggleMobileMenu} aria-label="Toggle menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  </button>
+
+  <nav class:open={mobileMenuOpen}>
+    <a href={resolve('/all')} on:click={closeMobileMenu}>Articles</a>
+    <a href={resolve('/categories')} on:click={closeMobileMenu}>Categories</a>
+    <a href={resolve('/about')} on:click={closeMobileMenu}>About Us</a>
+    <a href={resolve('/contact')} on:click={closeMobileMenu}>Contact</a>
   </nav>
 </header>
 
@@ -78,5 +98,71 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #003160;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+}
+
+.mobile-menu-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+
+  .teraCore {
+    position: static;
+    font-size: 1.2rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: white;
+    border-bottom: 0.1rem solid #003160;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  nav.open {
+    max-height: 300px;
+  }
+
+  nav a {
+    padding: 1rem;
+    border-bottom: 0.1rem solid #f0f0f0;
+  }
+
+  nav a::after {
+    display: none;
+  }
+
+  nav a:hover {
+    background-color: #f5f5f5;
+  }
 }
 </style>

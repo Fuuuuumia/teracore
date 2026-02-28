@@ -35,19 +35,17 @@
 
 <style>
   .categories-container {
-    padding: 2rem
+    padding: 2rem;
   }
 
   h1 {
     display: block;
     font-size: 2em;
-        color: #003160;
+    color: #003160;
     font-weight: bold;
     unicode-bidi: isolate;
     margin-bottom: 0.5rem;
   }
-
-
 
   .categories-grid {
     display: grid;
@@ -65,12 +63,8 @@
     text-decoration: none;
     border-radius: 8px;
     padding: 2rem;
-    transition: all 0.1s ease;
-    
+    transition: all 0.3s ease;
     position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: white;
     border: 1px solid #e5e7eb;
     border-left: 4px solid #003160;
     height: 160px;
@@ -107,16 +101,59 @@
   }
 
   @media (max-width: 768px) {
+    .categories-container {
+      padding: 1.5rem 1rem;
+    }
+
     h1 {
-      font-size: 2rem;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
     }
 
     .categories-grid {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .category-card {
-      min-height: 80px;
+      height: 120px;
+      padding: 1.5rem;
+    }
+
+    .category-card h2 {
+      font-size: 1.25rem;
+    }
+
+    .post-count {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .categories-container {
+      padding: 1rem 0.75rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .category-card {
+      height: 100px;
+      padding: 1rem;
+    }
+
+    .category-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .post-count {
+      font-size: 0.85rem;
+    }
+
+    .results-header {
+      font-size: 0.8rem;
     }
   }
 </style>
