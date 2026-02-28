@@ -1,26 +1,17 @@
 <script>
   import { resolve } from '$lib/utils/paths';
+  import { categories } from '$lib/data';
   
-  const categories = [
-    { name: 'AVIUtill', path: resolve('/blog/aviutill') },
-    { name: 'BlackMagic ATEM ああああああああああああああああああああ', path: resolve('/blog/blackmagic-atem') },
-    { name: 'Davinci Resolve', path: resolve('/blog/davinci-resolve') },
-    { name: 'OBS Studio', path: resolve('/blog/obs-studio') },
-    { name: 'Android Studio', path: resolve('/blog/android-studio') },
-
-    { name: 'PA', path: resolve('/blog/public-address-system') },
-    { name: 'SveltKit', path: resolve('/blog/sveltekit') }
-    
-    
-  ];
-
   // アルファベット順にグループ化
   let grouped = {};
 
   categories.forEach(cat => {
     const first = cat.name[0].toUpperCase();
     if (!grouped[first]) grouped[first] = [];
-    grouped[first].push(cat);
+    grouped[first].push({
+      name: cat.name,
+      path: resolve(cat.path)
+    });
   });
 
   // アルファベット順にソート
