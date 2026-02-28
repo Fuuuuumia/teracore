@@ -61,7 +61,7 @@ aside {
   left: 0;
   width: 200px;
   padding: 1rem;
-  background: #ededf6; 
+  background: #ededed; 
   height: calc(100vh - 60px); 
   border-right: 0.1rem solid #00316010 ;  
   border-bottom: 0.1rem solid #00316010 ;  
