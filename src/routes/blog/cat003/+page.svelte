@@ -3,8 +3,8 @@
 </script>
 
 <div class="category-page">
-  <h1>Sample Category</h1>
-  <PostList categoryId="sample-category" />
+  <h1>Sample Category3</h1>
+  <PostList categoryId="cat003" />
 </div>
 
 <style>
