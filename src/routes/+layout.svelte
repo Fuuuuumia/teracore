@@ -1,6 +1,7 @@
 <script>
   import Header from '$lib/components/Header.svelte';
   import Sidebar from '$lib/components/Sidebar.svelte';
+  import { sidebarOpen } from '$lib/stores/sidebar';
   import "./reset.css";
 </script>
 
@@ -8,7 +9,7 @@
 
 <div class="container">
   <Sidebar />
-  <main>
+  <main style="margin-left: {$sidebarOpen ? '200px' : '60px'}">
     <slot />
   </main>
 </div>
@@ -17,11 +18,12 @@
   .container {
     display: flex;
   }
+  
   main {
     flex: 1;
-    padding:0;
+    padding: 0;
     margin-top: 60px;
-    margin-left: 200px;
+    transition: margin-left 0.3s ease;
   }
 
   html, body {

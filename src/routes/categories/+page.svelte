@@ -65,7 +65,7 @@
     text-decoration: none;
     border-radius: 8px;
     padding: 2rem;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     
     position: relative;
     border-radius: 8px;

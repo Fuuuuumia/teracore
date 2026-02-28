@@ -6,6 +6,7 @@
   <a href={resolve('/all')} class="teraCore">teraCore</a>
   <nav>
     <a href={resolve('/all')}>Articles</a>
+    <a href={resolve('/categories')}>Categories</a>
     <a href={resolve('/about')}>About Us</a>
     <a href={resolve('/contact')}>Contact</a>
   </nav>
