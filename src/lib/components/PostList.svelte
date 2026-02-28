@@ -239,7 +239,7 @@
 
   .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
@@ -255,7 +255,7 @@
     background-color: white;
     border: 1px solid #e5e7eb;
     border-left: 4px solid #003160;
-    transition: all 0.1s ease;
+    transition: all 0.3s ease;
     display: flex;
     height: 160px;
     cursor: pointer;
@@ -360,6 +360,7 @@
     font-size: 0.875rem;
     font-weight: 500;
     transition: all 0.2s;
+    min-height: 44px;
   }
 
   .nav-btn:hover:not(:disabled) {
@@ -389,9 +390,42 @@
     font-style: italic;
   }
 
+  @media (max-width: 1024px) {
+    .posts-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+
   @media (max-width: 768px) {
+    .filter-row {
+      flex-direction: column;
+      padding: 0.75rem;
+    }
+
+    .filter-input {
+      width: 100%;
+    }
+
+    .filter-input label {
+      font-size: 0.7rem;
+    }
+
+    .filter-input select,
+    .filter-input input {
+      padding: 0.7rem 0.8rem;
+      min-height: 44px;
+      font-size: 1rem;
+    }
+
+    .reset-btn {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.8rem;
+    }
+
     .posts-grid {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .post-card {
@@ -400,7 +434,31 @@
     }
 
     .thumbnail {
-      flex: 0 0 160px !important;
+      flex: 0 0 160px;
+      min-height: 160px;
+    }
+
+    .card-info {
+      padding: 0.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .title {
+      font-size: 0.95rem;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      gap: 0.4rem;
+    }
+
+    .date,
+    .author {
+      font-size: 0.75rem;
     }
 
     .filter-row {
@@ -418,6 +476,7 @@
     .pagination {
       flex-direction: column;
       gap: 0.5rem;
+      padding: 1rem;
     }
 
     .page-indicator {
@@ -426,6 +485,50 @@
 
     .nav-btn {
       width: 100%;
+      padding: 0.8rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .results-header {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-card {
+      height: auto;
+    }
+
+    .thumbnail {
+      flex: 0 0 120px;
+      min-height: 120px;
+    }
+
+    .card-info {
+      padding: 0.5rem;
+    }
+
+    .title {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .date,
+    .author {
+      font-size: 0.7rem;
+    }
+
+    .filter-input select,
+    .filter-input input {
+      font-size: 16px;
+    }
+
+    .pagination {
+      gap: 0.3rem;
+    }
+
+    .page-indicator {
+      font-size: 0.8rem;
     }
   }
 </style>

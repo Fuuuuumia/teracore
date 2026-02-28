@@ -9,7 +9,7 @@
 
 <div class="container">
   <Sidebar />
-  <main style="margin-left: {$sidebarOpen ? '200px' : '60px'}">
+  <main class:sidebar-open={$sidebarOpen}>
     <slot />
   </main>
 </div>
@@ -23,24 +23,47 @@
     flex: 1;
     padding: 0;
     margin-top: 60px;
+    margin-left: 200px;
     transition: margin-left 0.3s ease;
   }
 
+  main.sidebar-open {
+    margin-left: 200px;
+  }
+
   html, body {
-  margin: 0;
-  padding: 0;
-   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
 
-*, *::before, *::after {
-  box-sizing: inherit;
-}
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    main {
+      margin-left: 0;
+      margin-top: 60px;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      padding: 0 0.5rem;
+    }
+  }
 </style>
