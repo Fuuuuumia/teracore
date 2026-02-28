@@ -255,7 +255,7 @@
     background-color: white;
     border: 1px solid #e5e7eb;
     border-left: 4px solid #003160;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     display: flex;
     height: 160px;
     cursor: pointer;
