@@ -78,8 +78,3 @@
   }
 </style>
 
-<svelte:head>
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="icon" href="/icons/icon-192.png" />
-  <meta name="theme-color" content="#003160" />
-</svelte:head>

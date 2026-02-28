@@ -29,7 +29,7 @@ export const categories: Category[] = [
 ];
 
 export const writers: Writer[] = [
-  { id: 'author001', name: 'Fumi', icon: '' },
+  { id: 'author001', name: 'Fumi', icon: '/icons/author001.png' },
   { id: 'author002', name: 'taka-------y', icon: '' },
 
 ];
