@@ -21,71 +21,36 @@ export interface Post {
 }
 
 export const categories: Category[] = [
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
-  { id: 'sample-category', name: 'Sample Category', path: '/blog/sample-category' },
+  { id: 'cat001', name: 'Sample Category', path: '/blog/cat001' },
+  { id: 'cat002', name: 'Sample Category2', path: '/blog/cat002' },
+  { id: 'cat003', name: 'Sample Category3', path: '/blog/cat003' },
+  
 
 ];
 
 export const writers: Writer[] = [
   { id: 'author001', name: 'Fumi', icon: '' },
+  { id: 'author002', name: 'taka-------y', icon: '' },
+
 ];
 
 export const posts: Post[] = [
   {
     id: 'post001',
-    title: 'Android Studio 初期設定ガイド',
-    path: '/blog/sample-category/log1',
-    author: 'author001',
+    title: 'SvelteKit 書き方まとめ',
+    path: '/blog/cat001/log001',
+    author: 'author002',
     date: '2026-02-21',
-    category: 'sample-category',
-    thumbnail: '/blog/sample-category/log1/thumbnail.png',
+    category: 'cat001',
+    thumbnail: '/blog/cat001/log001/thumbnail.png',
   },
   {
     id: 'post002',
-    title: 'Androidエミュレーターの最適化',
-    path: '/blog/sample-category/log3',
+    title: 'Android Studio 入門ガイド',
+    path: '/blog/cat002/log001',
     author: 'author001',
     date: '2026-02-20',
-    category: 'sample-category',
+    category: 'cat002',
   },
   
 ];
