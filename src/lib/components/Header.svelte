@@ -14,7 +14,7 @@
 </script>
 
 <header>
-  <a href={resolve('/all')} class="teraCore">teraCore</a>
+  <a href={resolve('/')} class="teraCore">teraCore</a>
   
   <button class="mobile-menu-btn" on:click={toggleMobileMenu} aria-label="Toggle menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -25,7 +25,7 @@
   </button>
 
   <nav class:open={mobileMenuOpen}>
-    <a href={resolve('/all')} on:click={closeMobileMenu}>Articles</a>
+    <a href={resolve('/')} on:click={closeMobileMenu}>Articles</a>
     <a href={resolve('/categories')} on:click={closeMobileMenu}>Categories</a>
     <a href={resolve('/about')} on:click={closeMobileMenu}>About Us</a>
     <a href={resolve('/contact')} on:click={closeMobileMenu}>Contact</a>
