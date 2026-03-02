@@ -13,16 +13,18 @@
   .simplelog :global(h1) {
     font-size: 2.5rem;
     margin-top: 2rem;
+    color: #003160;
+
   }
 
   .simplelog :global(h2) {
     font-size: 1.8rem;
-    border-left: 4px solid #888;
+    border-left: 4px solid #003160;
     padding-left: 0.5rem;
   }
 
   .simplelog :global(hr) {
-    border: none;
+    border: none; 
     height: 2px;
     background: #ddd;
     margin: 3rem 0;
