@@ -12,27 +12,35 @@ export interface Category {
 
 export interface Post {
   id: string;
-  title: string;
+  cat: string;
   path: string;
-  author: string;
+  thum?: string;
+  title: string;
+  ath: string;
   date: string;
-  category: string;
-  thumbnail?: string;
 }
 
 export const writers: Writer[] = [
-  { id: 'author001', name: 'Fumi', icon: '/icons/author001.png' },
-  { id: 'author002', name: 'taka-------y', icon: '' },
+  { id: 'ath1', name: 'Fumi', icon: '/icons/ath1.png' },
+  { id: 'ath2', name: 'taka-------y', icon: '' },
 
 ];
 
 export const categories: Category[] = [
-  { id: 'cat001', name: 'PAシステム', path: '/blog/cat001' },
+  { id: 'cat1', name: 'PAシステム基礎', path: '/blog/cat1' },
 
 ];
 
 export const posts: Post[] = [
-
+  {
+    id: 'log1',
+    cat: 'cat1',
+    path: '/blog/cat1/log1',
+    thum: '/blog/cat1/log1/thumbnail.png',
+    title: 'SvelteKit 書き方まとめ',
+    ath: 'fumi',
+    date: '2026-02-21',
+  },
 
   
 ];
@@ -41,11 +49,11 @@ export function getPostsByCategory(categoryId: string): Post[] {
   if (categoryId === 'all') {
     return posts;
   }
-  return posts.filter((post) => post.category === categoryId);
+  return posts.filter((post) => post.cat === categoryId);
 }
 
-export function getPostsByAuthor(authorId: string): Post[] {
-  return posts.filter((post) => post.author === authorId);
+export function getPostsByath(athId: string): Post[] {
+  return posts.filter((post) => post.ath === athId);
 }
 
 export function getCategoryById(categoryId: string): Category | undefined {

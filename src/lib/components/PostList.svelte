@@ -7,13 +7,13 @@
   const ITEMS_PER_PAGE = 20;
   
   let currentPage = 1;
-  let filterAuthor = '';
+  let filterath = '';
   let sortOrder = 'desc'; // 'desc' | 'asc'
 
   $: allPosts = getPostsByCategory(categoryId);
   
   $: filteredPosts = allPosts.filter(post => {
-    if (filterAuthor && post.author !== filterAuthor) return false;
+    if (filterath && post.ath !== filterath) return false;
     return true;
   });
 
@@ -34,7 +34,7 @@
 
   const resetFilters = () => {
     currentPage = 1;
-    filterAuthor = '';
+    filterath = '';
     sortOrder = 'desc';
   };
 
@@ -58,8 +58,8 @@
   <div class="filter-section">
     <div class="filter-row">
       <div class="filter-input">
-        <label for="author-filter">著者</label>
-        <select id="author-filter" bind:value={filterAuthor}>
+        <label for="ath-filter">著者</label>
+        <select id="ath-filter" bind:value={filterath}>
           <option value="">すべて</option>
           {#each writers as writer}
             <option value={writer.id}>{writer.name}</option>
@@ -91,9 +91,9 @@
         <a href={resolve(post.path)} class="post-card-link">
           <div class="post-card">
             <div class="card-base">
-              <div class="thumbnail">
-                {#if post.thumbnail}
-                  <img src={resolve(post.thumbnail)} alt={post.title} />
+              <div class="thum">
+                {#if post.thum}
+                  <img src={resolve(post.thum)} alt={post.title} />
                 {:else}
                   <div class="placeholder">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -110,13 +110,13 @@
                   {post.title}
                 </h3>
                 <div class="meta">
-                  {#if getWriterById(post.author)}
-                    <span class="author">
+                  {#if getWriterById(post.ath)}
+                    <span class="ath">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                         <circle cx="12" cy="7" r="4"/>
                       </svg>
-                      {getWriterById(post.author).name}
+                      {getWriterById(post.ath).name}
                     </span>
                   {/if}
                   <span class="date">
@@ -274,7 +274,7 @@
     height: 100%;
   }
 
-  .thumbnail {
+  .thum {
     flex: 0 0 180px;
     background-color: #f0f2f5;
     overflow: hidden;
@@ -283,13 +283,13 @@
     justify-content: center;
   }
 
-  .thumbnail img {
+  .thum img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .thumbnail .placeholder {
+  .thum .placeholder {
     width: 100%;
     height: 100%;
     display: flex;
@@ -297,7 +297,7 @@
     justify-content: center;
   }
 
-  .thumbnail svg {
+  .thum svg {
     width: 50%;
     height: 50%;
     opacity: 0.3;
@@ -318,7 +318,7 @@
   }
 
   .date,
-  .author {
+  .ath {
     display: flex;
     align-items: center;
     gap: 0.3rem;
@@ -327,7 +327,7 @@
   }
 
   .date svg,
-  .author svg {
+  .ath svg {
     flex-shrink: 0;
     width: 12px;
     height: 12px;
@@ -433,7 +433,7 @@
       flex-direction: column;
     }
 
-    .thumbnail {
+    .thum {
       flex: 0 0 160px;
       min-height: 160px;
     }
@@ -457,7 +457,7 @@
     }
 
     .date,
-    .author {
+    .ath {
       font-size: 0.75rem;
     }
 
@@ -499,7 +499,7 @@
       height: auto;
     }
 
-    .thumbnail {
+    .thum {
       flex: 0 0 120px;
       min-height: 120px;
     }
@@ -514,7 +514,7 @@
     }
 
     .date,
-    .author {
+    .ath {
       font-size: 0.7rem;
     }
 

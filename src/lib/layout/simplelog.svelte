@@ -1,15 +1,8 @@
-<main class = "simplelog">
-  <div class="content">
-    <slot />
-  </div>
+<main class="simplelog">
+  <slot />
 </main>
 
 <style>
-  .content {
-    margin: 0 auto; 
-    padding: 2rem 2rem;
-  }
-
   .simplelog :global(h1) {
     font-size: 2.5rem;
     margin-top: 2rem;
@@ -43,6 +36,7 @@
     padding: 1rem;
     border-radius: 4px;
     overflow-x: auto;
+    font-size: 0.9rem;
     margin: 1.5rem 0;
   }
 
@@ -50,6 +44,8 @@
     font-family: monospace;
     margin: 0 0.25rem;
     font-size: 0.9rem;
+    background: #eee;
     padding: 0.25rem;
+    border-radius: 4px;
   }
 </style>
