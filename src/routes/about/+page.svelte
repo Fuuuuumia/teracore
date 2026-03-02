@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const starCount = 100;
 
   const stars = Array.from({ length: starCount }, () => ({

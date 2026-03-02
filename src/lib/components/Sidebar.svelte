@@ -1,17 +1,22 @@
-<script>
+<script lang="ts">
   import { resolve } from '$app/paths';
-  import { categories } from '$lib/data';
+  import type { RouteId } from '$app/types';
+  import { categories, type Category } from '$lib/data';
   
   let {sidebarOpen = $bindable()} = $props();
 
-  let grouped = {};
+  interface articleList {
+    [key: string]: {name: string, path: string}[]
+  }
 
-  categories.forEach(cat => {
+  let grouped: articleList = {};
+
+  categories.forEach((cat: Category) => {
     const first = cat.name[0].toUpperCase();
     if (!grouped[first]) grouped[first] = [];
     grouped[first].push({
       name: cat.name,
-      path: resolve(cat.path)
+      path: resolve(cat.path as RouteId)
     });
   });
 
@@ -28,7 +33,7 @@
   };
 </script>
 
-<aside class="{sidebarOpen? "mobile-overlay open": "closed"}">
+<aside class="{sidebarOpen? "mobile-overlay": "closed"}">
   <div class="sidebar-header">
     <button class="toggle-btn" onclick={toggleSidebar} aria-label="Toggle sidebar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

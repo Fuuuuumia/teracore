@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
   import { categories, getPostsByCategory } from '$lib/data';
   import { resolve } from '$app/paths';
+  import type { RouteId } from '$app/types';
 
   let categoryStats = categories.map(cat => ({
     ...cat,
@@ -23,7 +24,7 @@
 
   <div class="categories-grid">
     {#each categoryStats as category}
-      <a href={resolve(category.path)} class="category-card">
+      <a href={resolve(category.path as RouteId)} class="category-card">
         <div class="card-content">
           <h2>{category.name}</h2>
           <p class="post-count">{category.postCount} articles</p>
