@@ -1,5 +1,9 @@
+<script lang="ts">
+  let {children} = $props();
+</script>
+
 <main class="simplelog">
-  <slot />
+  {@render children()}
 </main>
 
 <style>

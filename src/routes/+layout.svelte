@@ -1,15 +1,18 @@
-<script>
+<script lang="ts">
   import Header from '$lib/components/Header.svelte';
   import Sidebar from '$lib/components/Sidebar.svelte';
-  import { sidebarOpen } from '$lib/stores/sidebar';
   import "./reset.css";
+
+  let {children} = $props();
+  let sidebarOpen = $state(false);
 </script>
 
 <Header />
 
 <div class="container">
-  <Sidebar />
-<main class:sidebar-open={$sidebarOpen} class:sidebar-closed={!$sidebarOpen}>    <slot />
+  <Sidebar bind:sidebarOpen={sidebarOpen} />
+  <main class="{sidebarOpen? "sidebar-open": "sidebar-closed"}">    
+    {@render children()}
   </main>
 </div>
 

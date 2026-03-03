@@ -1,36 +1,37 @@
-<script>
+<script lang="ts">
   import { getPostsByCategory, getWriterById, writers } from '$lib/data';
-  import { resolve } from '$lib/utils/paths';
+  import { resolve } from '$app/paths';
+  import type { RouteId } from '$app/types';
 
-  export let categoryId;
+  let {categoryId} = $props();
 
   const ITEMS_PER_PAGE = 20;
   
-  let currentPage = 1;
-  let filterath = '';
-  let sortOrder = 'desc'; // 'desc' | 'asc'
+  let currentPage = $state(1);
+  let filterath = $state('');
+  let sortOrder = $state('desc'); // 'desc' | 'asc'
 
-  $: allPosts = getPostsByCategory(categoryId);
+  let allPosts = $derived(getPostsByCategory(categoryId));
   
-  $: filteredPosts = allPosts.filter(post => {
+  let filteredPosts = $derived(allPosts.filter(post => {
     if (filterath && post.ath !== filterath) return false;
     return true;
-  });
+  }));
 
-  $: sortedPosts = [...filteredPosts].sort((a, b) => {
+  let sortedPosts = $derived([...filteredPosts].sort((a, b) => {
     const comparison = a.date.localeCompare(b.date);
     return sortOrder === 'desc' ? -comparison : comparison;
-  });
+  }));
 
-  $: totalPages = Math.ceil(sortedPosts.length / ITEMS_PER_PAGE);
-  $: paginatedPosts = sortedPosts.slice(
+  let totalPages = $derived(Math.ceil(sortedPosts.length / ITEMS_PER_PAGE));
+  let paginatedPosts = $derived(sortedPosts.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
-  );
+  ));
 
-  $: if (currentPage > totalPages && totalPages > 0) {
-    currentPage = totalPages;
-  }
+  // $: if (currentPage > totalPages && totalPages > 0) {
+  //   currentPage = totalPages;
+  // }
 
   const resetFilters = () => {
     currentPage = 1;
@@ -38,7 +39,7 @@
     sortOrder = 'desc';
   };
 
-  const formatDate = (dateStr) => {
+  const formatDate = (dateStr: string) => {
     const date = new Date(dateStr + 'T00:00:00');
     return date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' });
   };
@@ -75,7 +76,7 @@
         </select>
       </div>
 
-      <button class="reset-btn" on:click={resetFilters}>リセット</button>
+      <button class="reset-btn" onclick={resetFilters}>リセット</button>
     </div>
   </div>
 
@@ -88,12 +89,12 @@
     
     <div class="posts-grid">
       {#each paginatedPosts as post (post.id)}
-        <a href={resolve(post.path)} class="post-card-link">
+        <a href={resolve(post.path as RouteId)} class="post-card-link">
           <div class="post-card">
             <div class="card-base">
               <div class="thum">
                 {#if post.thum}
-                  <img src={resolve(post.thum)} alt={post.title} />
+                  <img src={resolve(post.thum as RouteId)} alt={post.title} />
                 {:else}
                   <div class="placeholder">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +117,7 @@
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                         <circle cx="12" cy="7" r="4"/>
                       </svg>
-                      {getWriterById(post.ath).name}
+                      {getWriterById(post.ath)?.name}
                     </span>
                   {/if}
                   <span class="date">
@@ -142,7 +143,7 @@
         <button 
           class="nav-btn"
           disabled={currentPage === 1}
-          on:click={() => currentPage = currentPage - 1}
+          onclick={() => {currentPage--;}}
         >
           ← 前へ
         </button>
@@ -154,7 +155,7 @@
         <button 
           class="nav-btn"
           disabled={currentPage === totalPages}
-          on:click={() => currentPage = currentPage + 1}
+          onclick={() => {currentPage++;}}
         >
           次へ →
         </button>

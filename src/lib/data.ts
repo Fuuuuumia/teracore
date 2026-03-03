@@ -22,13 +22,13 @@ export interface Post {
 
 export const writers: Writer[] = [
   { id: 'ath1', name: 'Fumi', icon: '/icons/ath1.png' },
-  { id: 'ath2', name: 'taka-------y', icon: '' },
+  { id: 'ath2', name: 'Kanata', icon: '' },
 
 ];
 
 export const categories: Category[] = [
   { id: 'cat1', name: 'PAシステム基礎', path: '/blog/cat1' },
-
+  { id: 'cat2', name: 'デジタルケーブル基礎', path:'/blog/cat2'}
 ];
 
 export const posts: Post[] = [

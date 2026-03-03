@@ -1,8 +1,7 @@
-<script>
-  import { resolve } from '$lib/utils/paths';
-  import { sidebarOpen } from '$lib/stores/sidebar';
+<script lang="ts">
+  import { resolve } from "$app/paths";
   
-  let mobileMenuOpen = false;
+  let mobileMenuOpen = $state(false);
 
   const toggleMobileMenu = () => {
     mobileMenuOpen = !mobileMenuOpen;
@@ -16,7 +15,7 @@
 <header>
   <a href={resolve('/')} class="teraCore">teraCore</a>
   
-  <button class="mobile-menu-btn" on:click={toggleMobileMenu} aria-label="Toggle menu">
+  <button class="mobile-menu-btn" onclick={toggleMobileMenu} aria-label="Toggle menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <line x1="3" y1="6" x2="21" y2="6" />
       <line x1="3" y1="12" x2="21" y2="12" />
@@ -25,10 +24,10 @@
   </button>
 
   <nav class:open={mobileMenuOpen}>
-    <a href={resolve('/')} on:click={closeMobileMenu}>Articles</a>
-    <a href={resolve('/categories')} on:click={closeMobileMenu}>Categories</a>
-    <a href={resolve('/about')} on:click={closeMobileMenu}>About Us</a>
-    <a href={resolve('/contact')} on:click={closeMobileMenu}>Contact</a>
+    <a href={resolve('/')} onclick={closeMobileMenu}>Articles</a>
+    <a href={resolve('/categories')} onclick={closeMobileMenu}>Categories</a>
+    <a href={resolve('/about')} onclick={closeMobileMenu}>About Us</a>
+    <a href={resolve('/contact')} onclick={closeMobileMenu}>Contact</a>
   </nav>
 </header>
 
