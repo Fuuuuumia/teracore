@@ -1,3 +1,13 @@
+#ブランチの命名規則
+
+ブランチは以下の規則に従って命名します．
+
+-新機能 feature/<機能の名前>
+-バグ修正 fix/<修正部分>
+-新規記事 articles/<あなたのauthorID>
+
+
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
