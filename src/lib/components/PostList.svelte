@@ -89,12 +89,12 @@
     
     <div class="posts-grid">
       {#each paginatedPosts as post (post.id)}
-        <a href={resolve(post.path as RouteId)} class="post-card-link">
+        <a href={resolve(post.path as any)} class="post-card-link">
           <div class="post-card">
             <div class="card-base">
               <div class="thum">
                 {#if post.thum}
-                  <img src={resolve(post.thum as RouteId)} alt={post.title} />
+                  <img src={resolve(post.thum as any)} alt={post.title} />
                 {:else}
                   <div class="placeholder">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
