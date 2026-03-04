@@ -1,6 +1,5 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import type { RouteId } from '$app/types';
   import { categories, type Category } from '$lib/data';
   
   let {sidebarOpen = $bindable()} = $props();
@@ -16,7 +15,7 @@
     if (!grouped[first]) grouped[first] = [];
     grouped[first].push({
       name: cat.name,
-      path: resolve(cat.path as RouteId)
+      path: resolve(cat.path as any)
     });
   });
 
