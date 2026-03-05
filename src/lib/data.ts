@@ -56,7 +56,7 @@ export const posts: Post[] = [
     id: 'cat2-log1',
     cat: 'cat2',
     path: '/blog/cat2/log1',
-    title: '1.デジタルケーブル、デジタル信号とは',
+    title: '1.デジタル信号とは',
     ath: 'kanata',
     date: '2026-03-04',
   },
@@ -107,6 +107,22 @@ export const posts: Post[] = [
     title: 'Ⅱ / 第一講「音声ファイル切り貼りの極意」',
     ath: 'kinako',
     date: '2026-03-05',
+   },
+   {
+    id: 'cat2-log6',
+    cat: 'cat2',
+    path: '/blog/cat2/log6',
+    title: '6.パソコンと周辺機器を繋ぐケーブル①',
+    ath: 'kanata',
+    date: '2026-03-04',
+  },
+  {
+    id: 'cat2-log7',
+    cat: 'cat2',
+    path: '/blog/cat2/log7',
+    title: '7.パソコンと周辺機器を繋ぐケーブル②',
+    ath: 'kanata',
+    date: '2026-03-04',
   },
 ];
 
