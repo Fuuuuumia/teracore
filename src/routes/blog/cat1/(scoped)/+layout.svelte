@@ -70,7 +70,7 @@
   height: 3px;
   background: #e5e7eb;
   margin: 4rem 0;
-}
+  }
 
 
   .simplelog :global(pre) {
@@ -107,6 +107,7 @@
 
   .simplelog :global(img) {
     max-width: 60%;
+    width: auto;
     border-radius: 12px;
     margin: 2.5rem auto;
     display: block;
@@ -115,9 +116,9 @@
 
 
   .simplelog :global(table) {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
+  width: auto;
+  border-collapse: collapse;
+  margin: 2rem auto;
   }
 
   .simplelog :global(th) {
