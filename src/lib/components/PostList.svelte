@@ -1,7 +1,6 @@
 <script lang="ts">
   import { getPostsByCategory, getWriterById, writers } from '$lib/data';
   import { resolve } from '$app/paths';
-  import type { RouteId } from '$app/types';
 
   let {categoryId} = $props();
 
