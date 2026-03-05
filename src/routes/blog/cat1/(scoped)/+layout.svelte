@@ -70,7 +70,7 @@
   height: 3px;
   background: #e5e7eb;
   margin: 4rem 0;
-}
+  }
 
 
   .simplelog :global(pre) {
@@ -119,7 +119,7 @@
   width: auto;
   border-collapse: collapse;
   margin: 2rem auto;
-}
+  }
 
   .simplelog :global(th) {
     background: #003160;

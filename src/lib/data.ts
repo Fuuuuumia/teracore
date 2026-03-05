@@ -40,7 +40,7 @@ export const posts: Post[] = [
     id: 'fumi1',
     cat: 'cat1',
     path: '/blog/cat1/fumi1',
-    title: '第一回 スピーカから音が鳴るまでの流れ',
+    title: '第一回 音がスピーカから鳴るまでの流れ',
     ath: 'fumi',
     date: '2026-03-03',
   },
