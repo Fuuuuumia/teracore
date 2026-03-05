@@ -36,7 +36,7 @@ export const posts: Post[] = [
     id: 'fumi1',
     cat: 'cat1',
     path: '/blog/cat1/fumi1',
-    title: '第一回 PA機材のいろは スピーカから音が鳴るまで',
+    title: '第一回 スピーカから音が鳴るまでの流れ',
     ath: 'fumi',
     date: '2026-03-04',
   },
@@ -49,6 +49,54 @@ export const posts: Post[] = [
     date: '2026-03-04',
   },
   
+    {
+    id: 'cat2-log1',
+    cat: 'cat2',
+    path: '/blog/cat2/log1',
+    title: '1.デジタルケーブル、デジタル信号とは',
+    ath: 'kanata',
+    date: '2026-03-04',
+  },
+  {
+    id: 'cat2-log2',
+    cat: 'cat2',
+    path: '/blog/cat2/log2',
+    title: '2.デジタル信号の用途',
+    ath: 'kanata',
+    date: '2026-03-04',
+  },
+  {
+    id: 'cat2-log3',
+    cat: 'cat2',
+    path:  '/blog/cat2/log3',
+    title: '3.映像を伝えるケーブル①',
+    ath: 'kanata',
+    date: '2026-03-04',
+  },
+  {
+    id: 'cat2-log4',
+    cat: 'cat2',
+    path:  '/blog/cat2/log4',
+    title: '4.映像を伝えるケーブル②',
+    ath: 'kanata',
+    date: '2026-03-04',
+  },
+  {
+    id: 'cat2-log5',
+    cat: 'cat2',
+    path:  '/blog/cat2/log5',
+    title: '5.ネットワークを作るケーブル',
+    ath: 'kanata',
+    date: '2026-03-04',
+  },
+  {
+    id: 'fumi3',
+    cat: 'cat1',
+    path: '/blog/cat1/fumi3',
+    title: '第三回 信号の種類② マイクレベルとラインレベル',
+    ath: 'fumi',
+    date: '2026-03-04',
+  },
 ];
 
 export function getPostsByCategory(categoryId: string): Post[] {
