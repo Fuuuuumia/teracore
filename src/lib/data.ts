@@ -132,6 +132,14 @@ export const posts: Post[] = [
     ath: 'kanata',
     date: '2026-03-04',
   },
+  {
+    id: 'fumi4',
+    cat: 'cat1',
+    path: '/blog/cat1/fumi4',
+    title: '第四回 具体的な端子の種類',
+    ath: 'kanata',
+    date: '2026-03-06',
+  },
 ];
 
 export function getPostsByCategory(categoryId: string): Post[] {
