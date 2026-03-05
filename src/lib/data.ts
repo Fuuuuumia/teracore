@@ -40,7 +40,7 @@ export const posts: Post[] = [
     id: 'fumi1',
     cat: 'cat1',
     path: '/blog/cat1/fumi1',
-    title: '第一回 音がスピーカーから鳴るまでの流れ',
+    title: '第一回 スピーカから音が鳴るまでの流れ',
     ath: 'fumi',
     date: '2026-03-03',
   },
@@ -91,6 +91,14 @@ export const posts: Post[] = [
     title: '5.ネットワークを作るケーブル',
     ath: 'kanata',
     date: '2026-03-04',
+  },
+  {
+    id: 'fumi3',
+    cat: 'cat1',
+    path: '/blog/cat1/fumi3',
+    title: '第三回 信号の種類② マイクレベルとラインレベル',
+    ath: 'fumi',
+    date: '2026-03-05',
   },
   {
     id: 'file3-1',
