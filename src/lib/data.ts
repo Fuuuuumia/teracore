@@ -140,6 +140,14 @@ export const posts: Post[] = [
     ath: 'kanata',
     date: '2026-03-06',
   },
+  {
+    id: 'fumi5',
+    cat: 'cat1',
+    path: '/blog/cat1/fumi5',
+    title: '第五回 端子の変換ケーブル',
+    ath: 'kanata',
+    date: '2026-03-06',
+  },
 ];
 
 export function getPostsByCategory(categoryId: string): Post[] {
