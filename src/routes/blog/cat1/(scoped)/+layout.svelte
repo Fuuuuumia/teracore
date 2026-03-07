@@ -160,4 +160,78 @@
     color: white;
     padding: 0 4px;
   }
+
+  @media (max-width: 768px) {
+
+    .content {
+      max-width: 95%;
+      padding: 2.5rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .simplelog :global(h1) {
+      font-size: 2.1rem;
+    }
+
+    .simplelog :global(h2) {
+      font-size: 1.6rem;
+    }
+
+    .simplelog :global(img) {
+      max-width: 80%;
+    }
+
+    .simplelog :global(pre) {
+      font-size: 0.85rem;
+    }
+
+    .simplelog :global(table) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+
+    .content {
+      max-width: 100%;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .simplelog :global(h1) {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .simplelog :global(h2) {
+      font-size: 1.4rem;
+    }
+
+    .simplelog :global(h3) {
+      font-size: 1.15rem;
+    }
+
+    .simplelog :global(img) {
+      max-width: 100%;
+    }
+
+    .simplelog :global(pre) {
+      font-size: 0.8rem;
+      padding: 0.9rem;
+    }
+
+    .simplelog :global(th),
+    .simplelog :global(td) {
+      font-size: 0.85rem;
+      padding: 0.6rem;
+    }
+
+    .simplelog :global(blockquote) {
+      padding: 0.8rem 1rem;
+    }
+  }
 </style>
