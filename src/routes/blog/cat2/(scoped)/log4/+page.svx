@@ -1,7 +1,7 @@
 <script>
 import image1 from './image1.jpg'
 import image2 from './image2.jpg'
-import image3 from './image3-2.jpg'
+import image3 from './image3.jpg'
 </script>
 
 ### デジタルケーブル基礎 第二章 具体的なケーブルの形、種類
