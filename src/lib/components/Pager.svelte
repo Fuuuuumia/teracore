@@ -9,11 +9,13 @@
 </script>
 
 <div class="container">
-    {#if postIndex > 0}
-        <p><a href="{resolve(posts[postIndex - 1].path as any)}">前へ</a></p>
-    {/if}
-    {#if postIndex < posts.length - 1}
-        <p><a href="{resolve(posts[postIndex + 1].path as any)}">次へ</a></p>
+    {#if postIndex !== -1}
+        {#if postIndex > 0}
+            <p><a href="{resolve(posts[postIndex - 1].path as any)}">前へ</a></p>
+        {/if}
+        {#if postIndex < posts.length - 1}
+            <p><a href="{resolve(posts[postIndex + 1].path as any)}">次へ</a></p>
+        {/if}
     {/if}
 </div>
 

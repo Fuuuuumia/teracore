@@ -8,8 +8,8 @@
 <main class = "simplelog">
   <div class="content">
     <Title/>
-    <Pager/>
     {@render children()}
+    <Pager/>
   </div>
 </main>
 
