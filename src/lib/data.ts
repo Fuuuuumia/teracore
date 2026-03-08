@@ -152,7 +152,7 @@ export const posts: Post[] = [
   {
     id: '556_20260306',
     cat: 'cat6',
-    path: '/blog/cat6/556_20260306',
+    path: '/blog/cat6/556_aviutlscript-01',
     title: '1.AviUtlスクリプトとは',
     ath: '556',
     date: '2026-03-06',
