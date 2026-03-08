@@ -1,3 +1,5 @@
+import { resolve } from "$app/paths";
+
 export interface Writer {
   id: string;
   name: string;
@@ -215,4 +217,8 @@ export function getCategoryById(categoryId: string): Category | undefined {
 
 export function getWriterById(writerId: string): Writer | undefined {
   return writers.find((writer) => writer.id === writerId);
+}
+
+export function getPostByPathname(url: string){
+  return posts.find((post) => resolve(post.path as any) === url);
 }

@@ -1,9 +1,14 @@
 <script lang="ts">
+    import Pager from '$lib/components/Pager.svelte';
+    import Title from '$lib/components/Title.svelte';
+
   let {children} = $props();
 </script>
 
 <main class = "simplelog">
   <div class="content">
+    <Title/>
+    <Pager/>
     {@render children()}
   </div>
 </main>
