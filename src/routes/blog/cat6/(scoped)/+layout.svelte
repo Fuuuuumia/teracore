@@ -9,45 +9,61 @@
 </main>
 
 <style>
+
+  :root{
+    --accent-color: #003160;
+    --font-size-h1: 28em;
+    --font-size-h2: 24em;
+    --font-size-h3: 20em;
+    --font-size-p: 16em;
+  }
+  @media (max-width: 500px){
+    :root{
+    --font-size-h1:24em;
+    --font-size-h2: 20em;
+    --font-size-h3:18em;
+    }
+}
+
+.simplelog{
+  background: #fdfdfd;
+  overflow: hidden;
+  padding-top: 1rem;
+}
   .content {
-    max-width: 75%;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 2rem;
-    line-height: 1.9;
-    font-size: 1.05rem;
+    padding: 0 24px;
+    font-size: calc(1rem/16);
+    line-height: 1.5;
   }
 
-
   .simplelog :global(h1) {
-    font-size: 2.6rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    color: #003160;
-    border-bottom: 3px solid #003160;
+    color: var(--accent-color);
+    font-size: var(--font-size-h1);
+    margin: 1rem 0 1.5rem;
     padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent-color);
   }
 
   .simplelog :global(h2) {
-    font-size: 1.8rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-left: 5px solid #003160;
+    color: var(--accent-color);
+    font-size: var(--font-size-h2);
+    margin: 3rem 0 0;
     padding-left: 0.75rem;
-    color: #003160;
+    border-left: 5px solid var(--accent-color);
   }
 
   .simplelog :global(h3) {
-    font-size: 1.4rem;
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
+    font-size: var(--font-size-h3);
+    margin: 2rem 0 0;
     color: #222;
   }
 
-
-  .simplelog :global(p) {
-    margin: 1.3rem 0;
+  .simplelog :global(p){
+    font-size: var(--font-size-p);
+    margin: 1.5rem 0;
   }
-
 
   .simplelog :global(ul),
   .simplelog :global(ol) {
@@ -60,7 +76,7 @@
   }
 
   .simplelog :global(li::marker) {
-    color: #003160;
+    color: var(--accent-color);
     font-weight: bold;
   }
 
@@ -97,7 +113,7 @@
 
 
   .simplelog :global(blockquote) {
-    border-left: 4px solid #003160;
+    border-left: 4px solid var(--accent-color);
     background: #f4f8fc;
     padding: 1rem 1.2rem;
     margin: 2rem 0;
@@ -121,7 +137,7 @@
   }
 
   .simplelog :global(th) {
-    background: #003160;
+    background: var(--accent-color);
     color: white;
     padding: 0.8rem;
     text-align: left;
@@ -138,7 +154,7 @@
 
 
   .simplelog :global(strong) {
-    color: #003160;
+    color: var(--accent-color);
     font-weight: 700;
   }
 
@@ -148,14 +164,14 @@
 
 
   .simplelog :global(a) {
-    color: #003160;
+    color: var(--accent-color);
     text-decoration: none;
-    border-bottom: 1px solid #003160;
+    border-bottom: 1px solid var(--accent-color);
     transition: 0.2s ease;
   }
 
   .simplelog :global(a:hover) {
-    background: #003160;
+    background: var(--accent-color);
     color: white;
     padding: 0 4px;
   }
