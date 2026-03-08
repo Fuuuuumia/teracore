@@ -188,6 +188,14 @@ export const posts: Post[] = [
     ath: 'kanata',
     date: '2026-03-08',
   },
+  {
+    id: 'log13',
+    cat: 'cat2',
+    path: '/blog/cat2/log13',
+    title: '13.映像信号をLANケーブルで伝える',
+    ath: 'kanata',
+    date: '2026-03-08',
+  },
 ];
 
 export function getPostsByCategory(categoryId: string): Post[] {
