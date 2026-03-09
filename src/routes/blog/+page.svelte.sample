@@ -3,8 +3,8 @@
 </script>
 
 <div class="category-page">
-  <h1></h1> <!--h1にカテゴリ名を入力-->
-  <PostList categoryId="" /> <!--categoryIdにカテゴリIDを入力-->
+  <h1></h1> <!--h1にカテゴリnameを入力-->
+  <PostList categoryId="" /> <!--categoryIdにカテゴリidを入力-->
 </div>
 
 <style>
