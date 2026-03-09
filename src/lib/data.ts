@@ -225,7 +225,7 @@ export const posts: Post[] = [
     cat: '04-aviutlscript',
     path: '/blog/04-aviutlscript/01',
     title: '1.AviUtlスクリプトとは',
-    ath: '556',
+    ath: '04',
     date: '2026-03-09',
     index: 1,
   },
