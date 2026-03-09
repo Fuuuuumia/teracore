@@ -27,7 +27,7 @@ export const writers: Writer[] = [
   { id: '01', name: 'Fumi', icon: '/icons/ath1.png' },
   { id: '02', name: 'Kanata', icon: '' },
   { id: '03', name: 'きなこ氏', icon: '' },
-
+  { id: '04', name: '556', icon: '' },
 ];
 
 export const categories: Category[] = [
@@ -36,6 +36,7 @@ export const categories: Category[] = [
   { id: '03-cat3', name: '音声技術学Ⅰ（基礎）', path:  '/blog/03-cat3'},
   { id: '03-cat4', name: '音声技術学Ⅱ（理論）', path: '/blog/03-cat4'},
   { id: '03-cat5', name: '音声技術学Ⅲ（発展）/ DTM', path: '/blog/03-cat5'},
+  { id: '04-aviutlscript', name: 'AviUtlスクリプト（Lua）', path: '/blog/04-aviutlscript'},
 ];
 
 export const posts: Post[] = [
@@ -218,6 +219,15 @@ export const posts: Post[] = [
     ath: '02',
     date: '2026-03-08',
     index: 13,
+  },
+  {
+    id: '04-aviutlscript-01',
+    cat: '04-aviutlscript',
+    path: '/blog/04-aviutlscript/01',
+    title: '1.AviUtlスクリプトとは',
+    ath: '556',
+    date: '2026-03-09',
+    index: 1,
   },
 ];
 
