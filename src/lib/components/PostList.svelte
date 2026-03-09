@@ -18,7 +18,8 @@
   }));
 
   let sortedPosts = $derived([...filteredPosts].sort((a, b) => {
-    const comparison = a.date.localeCompare(b.date);
+    let comparison = a.date.localeCompare(b.date);
+    if(comparison === 0) comparison = a.index - b.index;
     return sortOrder === 'desc' ? -comparison : comparison;
   }));
 

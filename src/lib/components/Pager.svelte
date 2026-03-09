@@ -4,7 +4,7 @@
     import { getArticleByPathname, getArticlesByCategory } from "$lib/data";
 
     let post = $derived(getArticleByPathname(page.url.pathname));
-    let posts = $derived(getArticlesByCategory(post?.cat ?? ""));
+    let posts = $derived([...getArticlesByCategory(post?.cat ?? "")].sort((a, b)=>(a.index - b.index)));
     let postIndex = $derived(post? posts.indexOf(post): -1);
 </script>
 

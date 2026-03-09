@@ -100,7 +100,7 @@ export interface Article {
 | id | <カテゴリid>-<01からカウント> |
 | cat | <カテゴリid> |
 | path | /blog/<カテゴリid>/<任意の文字列> |
-| thum? | <サムネイル画像のパス>(なくてもよい) |
+| thum? | <`static`からみたサムネイル画像のパス>(なくてもよい) |
 | title | <任意の文字列> |
 | ath | <著者id> |
 | date | <yyyy-mm-dd形式の日付> |
