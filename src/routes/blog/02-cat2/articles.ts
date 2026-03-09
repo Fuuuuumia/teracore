@@ -1,4 +1,6 @@
-export const articles = [
+import type { Article } from "$lib/data";
+
+export const articles: Article[] = [
     {
         id: '02-cat2-01',
         cat: '02-cat2',
