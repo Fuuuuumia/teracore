@@ -44,13 +44,13 @@
   }
   .pager a{
     border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: solid 1px;
+    padding: 0.8rem 1rem;
+    border: solid 2px;
     border-radius: 0.5rem;
     font-weight: 700;
   }
   .pager p {
-    margin: 0.5rem !important;
+    margin: 0 0.5rem !important;
   }
 
 </style>
