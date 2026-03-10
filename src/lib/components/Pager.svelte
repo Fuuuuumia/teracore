@@ -1,10 +1,10 @@
 <script lang="ts">
     import { resolve } from "$app/paths";
     import { page } from "$app/state";
-    import { getPostByPathname, getPostsByCategory } from "$lib/data";
+    import { getArticleByPathname, getArticlesByCategory } from "$lib/data";
 
-    let post = $derived(getPostByPathname(page.url.pathname));
-    let posts = $derived(getPostsByCategory(post?.cat ?? ""));
+    let post = $derived(getArticleByPathname(page.url.pathname));
+    let posts = $derived([...getArticlesByCategory(post?.cat ?? "")].sort((a, b)=>(a.index - b.index)));
     let postIndex = $derived(post? posts.indexOf(post): -1);
 </script>
 
