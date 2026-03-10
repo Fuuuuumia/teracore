@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { categories, getPostsByCategory } from '$lib/data';
+  import { categories, getArticlesByCategory } from '$lib/data';
   import { resolve } from '$app/paths';
 
   let categoryStats = categories.map(cat => ({
     ...cat,
-    postCount: getPostsByCategory(cat.id).length,
+    postCount: getArticlesByCategory(cat.id).length,
   }));
 
   const getTotalCount = () => categoryStats.length;
