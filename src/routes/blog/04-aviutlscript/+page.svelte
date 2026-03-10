@@ -1,10 +1,10 @@
 <script lang="ts">
-  import PostList from '$lib/components/PostList.svelte';
+  import ArticleList from '$lib/components/ArticleList.svelte';
 </script>
 
 <div class="category-page">
   <h1>AviUtlスクリプト（Lua）</h1> <!--カテゴリ名を表示-->
-  <PostList categoryId="04-aviutlscript" /> <!--カテゴリIDで記事の絞り込み-->
+  <ArticleList categoryId="04-aviutlscript" /> <!--カテゴリIDで記事の絞り込み-->
 </div>
 
 <style>

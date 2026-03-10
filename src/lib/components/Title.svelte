@@ -1,8 +1,8 @@
 <script lang="ts">
     import { page } from "$app/state";
-    import { getPostByPathname } from "$lib/data";
+    import { getArticleByPathname } from "$lib/data";
 
-    let post = $derived(getPostByPathname(page.url.pathname));
+    let post = $derived(getArticleByPathname(page.url.pathname));
 </script>
 
 <h1>{post?.title}</h1>

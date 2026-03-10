@@ -1,10 +1,10 @@
 <script lang="ts">
-  import PostList from '$lib/components/PostList.svelte';
+  import ArticleList from '$lib/components/ArticleList.svelte';
 </script>
 
 <div class="category-page">
   <h1></h1> <!--h1にカテゴリnameを入力-->
-  <PostList categoryId="" /> <!--categoryIdにカテゴリidを入力-->
+  <ArticleList categoryId="" /> <!--categoryIdにカテゴリidを入力-->
 </div>
 
 <style>
