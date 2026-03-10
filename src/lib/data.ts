@@ -31,7 +31,7 @@ export const writers: Writer[] = [
 ];
 
 export const categories: Category[] = [
-  { id: '01-cat1', name: 'PAシステム基礎', path: '/blog/01-cat1' },
+  { id: '01-pasystem_f', name: 'PAシステム基礎', path: '/blog/01-pasystem_f' },
   { id: '02-cat2', name: 'デジタルケーブル基礎', path: '/blog/02-cat2'},
   { id: '03-cat3', name: '音声技術学Ⅰ（基礎）', path:  '/blog/03-cat3'},
   { id: '03-cat4', name: '音声技術学Ⅱ（理論）', path: '/blog/03-cat4'},
@@ -41,18 +41,18 @@ export const categories: Category[] = [
 
 export const posts: Post[] = [
   {
-    id: '01-cat1-01',
-    cat: '01-cat1',
-    path: '/blog/01-cat1/fumi1',
+    id: '01-pasystem_f-01',
+    cat: '01-pasystem_f',
+    path: '/blog/01-pasystem_f/01',
     title: '第一回 音がスピーカから鳴るまでの流れ',
     ath: '01',
     date: '2026-03-03',
     index: 1,
   },
   {
-    id: '01-cat1-02',
-    cat: '01-cat1',
-    path: '/blog/01-cat1/fumi2',
+    id: '01-pasystem_f-02',
+    cat: '01-pasystem_f',
+    path: '/blog/01-pasystem_f/02',
     title: '第二回 信号の種類① バランス信号とアンバランス信号',
     ath: '01',
     date: '2026-03-04',
@@ -104,9 +104,9 @@ export const posts: Post[] = [
     index: 5,
   },
   {
-    id: '01-cat1-03',
-    cat: '01-cat1',
-    path: '/blog/01-cat1/fumi3',
+    id: '01-pasystem_f-03',
+    cat: '01-pasystem_f',
+    path: '/blog/01-pasystem_f/03',
     title: '第三回 信号の種類② マイクレベルとラインレベル',
     ath: '01',
     date: '2026-03-05',
@@ -149,18 +149,18 @@ export const posts: Post[] = [
     index: 7,
   },
   {
-    id: '01-cat1-04',
-    cat: '01-cat1',
-    path: '/blog/01-cat1/fumi4',
+    id: '01-pasystem_f-04',
+    cat: '01-pasystem_f',
+    path: '/blog/01-pasystem_f/04',
     title: '第四回 具体的な端子の種類',
     ath: '02',
     date: '2026-03-06',
     index: 4,
   },
   {
-    id: '01-cat1-05',
-    cat: '01-cat1',
-    path: '/blog/01-cat1/fumi5',
+    id: '01-pasystem_f-05',
+    cat: '01-pasystem_f',
+    path: '/blog/01-pasystem_f/05',
     title: '第五回 端子の変換ケーブル',
     ath: '02',
     date: '2026-03-06',
@@ -230,12 +230,14 @@ export const posts: Post[] = [
     index: 1,
   },
   {
-    id: 'fumi6',
+    id: '01-pasystem_f-06',
     cat: 'cat1',
-    path: '/blog/cat1/fumi6',
+    path: '/blog/cat1/06',
     title: '第六回 マイクの基礎',
-    ath: 'fumi',
+    ath: '01',
     date: '2026-03-07',
+    index: 6,
+
   },
 ];
 
