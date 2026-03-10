@@ -31,7 +31,7 @@ export const writers: Writer[] = [
 ];
 
 export const categories: Category[] = [
-  { id: '01-cat1', name: 'PAシステム基礎', path: '/blog/01-cat1' },
+  { id: '01-pasystem_f', name: 'PAシステム基礎', path: '/blog/01-pasystem_f' },
   { id: '02-cat2', name: 'デジタルケーブル基礎', path: '/blog/02-cat2'},
   { id: '03-cat3', name: '音声技術学Ⅰ（基礎）', path:  '/blog/03-cat3'},
   { id: '03-cat4', name: '音声技術学Ⅱ（理論）', path: '/blog/03-cat4'},
