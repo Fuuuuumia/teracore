@@ -128,7 +128,7 @@ export interface Article {
 `src/routes//blog/<カテゴリid>/<任意の文字列>`を作成してください。  
 `routes`からみたこのフォルダのパスが`articles`の`path`プロパティの値と同じになったら正解です。  
   
-`src/routes//blog/<カテゴリid>/<01からカウント>/+page.svx`を作成してください。  
+`src/routes//blog/<カテゴリid>/<任意の文字列>/+page.svx`を作成してください。  
 このページにMarkdown形式で記入した内容が記事の内容となります。  
 Markdown記法は`src/routes/blog/+page.svx.sample`にまとめてあります。  
   
