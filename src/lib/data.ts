@@ -148,6 +148,14 @@ export const posts: Post[] = [
     ath: 'kanata',
     date: '2026-03-06',
   },
+  {
+    id: 'fumi6',
+    cat: 'cat1',
+    path: '/blog/cat1/fumi6',
+    title: '第六回 マイクの基礎',
+    ath: 'fumi',
+    date: '2026-03-07',
+  },
 ];
 
 export function getPostsByCategory(categoryId: string): Post[] {
