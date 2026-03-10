@@ -1,10 +1,10 @@
 <script lang="ts">
-  import PostList from '$lib/components/PostList.svelte';
+  import ArticleList from '$lib/components/ArticleList.svelte';
 </script>
 
 <div class="category-page">
   <h1>音声技術学Ⅱ（理論）</h1> <!--カテゴリ名を表示-->
-  <PostList categoryId="03-cat5" /> <!--カテゴリIDで記事の絞り込み-->
+  <ArticleList categoryId="03-cat5" /> <!--カテゴリIDで記事の絞り込み-->
 </div>
 
 <style>
