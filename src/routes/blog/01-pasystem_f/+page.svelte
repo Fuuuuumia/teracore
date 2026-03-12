@@ -4,7 +4,7 @@
 
 <div class="category-page">
   <h1>PAシステム基礎</h1> <!--カテゴリ名を表示-->
-  <ArticleList categoryId="01-cat1" /> <!--カテゴリIDで記事の絞り込み-->
+  <ArticleList categoryId="01-pasystem_f" /> <!--カテゴリIDで記事の絞り込み-->
 </div>
 
 <style>

@@ -48,11 +48,20 @@ export const articles: Article[] = [
     },
     {
     id: '01-pasystem_f-06',
-    cat: 'cat1',
+    cat: '01-pasystem_f',
     path: '/blog/01-pasystem_f/06',
     title: '第六回 マイクの基礎',
     ath: '01',
     date: '2026-03-07',
     index: 6,
-  },
+    },
+    {
+    id: '01-pasystem_f-07',
+    cat: '01-pasystem_f',
+    path: '/blog/01-pasystem_f/07',
+    title: '第七回 アンプの基礎',
+    ath: '01',
+    date: '2026-03-11',
+    index: 6,
+    },
 ];
