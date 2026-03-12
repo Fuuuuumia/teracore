@@ -9,7 +9,7 @@
 <script lang="ts">
 import { onMount } from "svelte";
 
-let { tag = ["h2", "h3"] }: { tag?: string[] } = $props();
+let { toptext="", tag = ["h2", "h3"] }: { toptext?: string, tag?: string[] } = $props();
 
 type TOCitem = {
   id: string;
@@ -65,11 +65,14 @@ onMount(() => {
 });
 </script>
 
-<div class="toc"><ul>
-  {#each toc as item}
-    {@render renderItem(item)}
-  {/each}
-</ul></div>
+<div class="toc">
+  <p>{toptext}</p>
+  <ul>
+    {#each toc as item}
+      {@render renderItem(item)}
+    {/each}
+  </ul>
+</div>
 
 {#snippet renderItem(item: TOCitem)}
 <li>
@@ -89,15 +92,19 @@ onMount(() => {
   .toc{
     overflow: hidden;
     border-radius: 1rem;
+    padding: 1rem 1.5rem;
     margin: 0 1rem;
   }
+  .toc p{
+    margin: 0;
+  }
   .toc ul{
-    margin: 1rem 1.5rem !important;
+    margin: 0;
   }
   .toc li{
     margin: 0.3rem 0 !important;
   }
   .toc li ul{
-    margin: 0 !important;
+    padding-left: 1rem;
   }
 </style>
