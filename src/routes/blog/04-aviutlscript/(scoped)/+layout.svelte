@@ -58,15 +58,22 @@
   .content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 1rem 24px 1rem;
+    padding: 1rem 2rem 1rem;
     line-height: 1.75;
     color: var(--p-color);
+  }
+
+  .simplelog :global(.toc){
+    background-color: var(--sub-color);
   }
 
   ::selection {
   background-color: #c7c7c7;
   }
 
+  .simplelog :global(h1), .simplelog :global(h2), .simplelog :global(h3){
+    scroll-margin-top: 80px;
+  }
   .simplelog :global(h1) {
     color: var(--main-color);
     font-size: var(--font-size-h1);
@@ -122,12 +129,16 @@
     color: var(--main-color);
     text-decoration: none;
     transition: 0.2s ease;
-    background: var(--bg-color);
     border-color: var(--main-color);
   }
   .simplelog :global(a:not(.pager a)) {
-    padding: 0 2px;
     border-bottom: 1px solid var(--main-color);
+  }
+  .simplelog :global(.pager a) {
+    background: var(--bg-color);
+  }
+  .simplelog :global(a:not(.pager a)) {
+    padding: 0 2px;
   }
   .simplelog :global(a:hover) {
     background: var(--main-color);

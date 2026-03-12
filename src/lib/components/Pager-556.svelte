@@ -2,19 +2,23 @@
   +layout.svelte style例
 
   .simplelog :global(a){
-    color: var(--main-color);
+    color: <強調色>;
     text-decoration: none;
     transition: 0.2s ease;
-    background: var(--bg-color);
-    border-color: var(--main-color);
+    border-color: <強調色>;
+  }
+  .simplelog :global(a:not(.pager a)) {
+    border-bottom: 1px solid <強調色>;
+  }
+  .simplelog :global(.pager a) {
+    background: <背景色>;
   }
   .simplelog :global(a:not(.pager a)) {
     padding: 0 2px;
-    border-bottom: 1px solid var(--main-color);
   }
   .simplelog :global(a:hover) {
-    background: var(--main-color);
-    color: var(--th-color);
+    background: <強調色>;
+    color: <強調色中の文字色>;
   }
   .simplelog :global(a:not(.pager a):hover) {
     border-radius: 0.25rem;
