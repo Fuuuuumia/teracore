@@ -16,11 +16,11 @@ type InputArticle = Omit<Article, keyof typeof common> & Partial<Article>;
 const input: InputArticle[] = [
   {
     title: "1.AviUtlスクリプトとは",
-    date: "2026-03-10",
+    date: "2026-03-12",
   },
   {
     title: "2.Luaの文法",
-    date: "2026-03-10",
+    date: "2026-03-12",
   },
 ];
 
