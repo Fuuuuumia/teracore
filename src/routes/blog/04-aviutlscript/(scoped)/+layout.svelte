@@ -1,13 +1,13 @@
 <script lang="ts">
   import Pager from '$lib/components/Pager-556.svelte';
-    import Title from '../Title.svelte';
+    import Title from '$lib/components/Title.svelte';
   let {children} = $props();
 </script>
 
 <main class = "simplelog">
   <div class="bg"></div>
   <div class="content">
-    <Title/>
+    <Title cat = {true}/>
     {@render children()}
   <hr>
   <Pager/>
@@ -39,13 +39,6 @@
     --font-size-h3: calc(18rem / 16);
     }
   }
-
-  /*Pager-556用*/
-  .simplelog:global(.pager .inner){
-    background: var(--bg-color) !important;
-    border-color: var(--p-color);
-  }
-
 
   .simplelog{
     overflow: hidden;
@@ -125,19 +118,22 @@
   }
   
   .simplelog :global(a){
-      color: var(--main-color);
-      text-decoration: none;
-      transition: 0.2s ease;
-      border-color: var(--main-color);
+    color: var(--main-color);
+    text-decoration: none;
+    transition: 0.2s ease;
+    background: var(--bg-color);
+    border-color: var(--main-color);
   }
   .simplelog :global(a:not(.pager a)) {
     padding: 0 2px;
     border-bottom: 1px solid var(--main-color);
-    border-radius: 0.25rem;
   }
   .simplelog :global(a:hover) {
     background: var(--main-color);
     color: var(--th-color);
+  }
+  .simplelog :global(a:not(.pager a):hover) {
+    border-radius: 0.25rem;
   }
   
   .simplelog :global(code) {
