@@ -5,10 +5,10 @@
     color: var(--main-color);
     text-decoration: none;
     transition: 0.2s ease;
-    background: var(--bg-color);
     border-color: var(--main-color);
   }
   .simplelog :global(a:not(.pager a)) {
+    background: var(--bg-color);
     padding: 0 2px;
     border-bottom: 1px solid var(--main-color);
   }
@@ -19,6 +19,8 @@
   .simplelog :global(a:not(.pager a):hover) {
     border-radius: 0.25rem;
   }
+
+  TOCを使う場合は :not(.toc a) も追加
 
 -->
 
