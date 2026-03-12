@@ -18,6 +18,13 @@
 
 ---
 
+<script>
+	import TOC from '$lib/components/TOC.svelte';
+</script>
+<TOC/>
+
+---
+
 ## AviUtlの準備
 
 このシリーズでは、AviUtl、拡張編集、patch.aul のみの構成のAviUtlを使って解説します。  
