@@ -37,6 +37,7 @@
     --font-size-h1: calc(24rem / 16);
     --font-size-h2: calc(20rem / 16);
     --font-size-h3: calc(18rem / 16);
+    --font-size-p: calc(14rem / 16);
     }
   }
 
@@ -57,7 +58,7 @@
   .content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 1rem 36px 1rem;
+    padding: 1rem 24px 1rem;
     line-height: 1.75;
     color: var(--p-color);
   }
