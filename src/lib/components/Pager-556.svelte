@@ -55,13 +55,17 @@
   .pager {
     max-width: 600px;
     margin: 0 auto;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 1rem 3rem;
+  }
+  @media (max-width: 500px){
+    .pager {
+      grid-template-columns: 1fr;
+    }
   }
   .pager a{
-    border-radius: 0.5rem;
     padding: 0.8rem 1rem;
     border: solid 2px;
     border-radius: 0.5rem;
