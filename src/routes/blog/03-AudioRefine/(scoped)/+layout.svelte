@@ -127,7 +127,15 @@
     padding: 0.8rem;
     text-align: left;
   }
-
+  .simplelog :global(th[align="center"]) {
+    text-align: center;
+  }
+  .simplelog :global(th[align="right"]) {
+    text-align: right;
+  }
+  .simplelog :global(th[align="left"]) {
+    text-align: left;
+  }
   .simplelog :global(td) {
     padding: 0.8rem;
     border-bottom: 1px solid #ddd;
