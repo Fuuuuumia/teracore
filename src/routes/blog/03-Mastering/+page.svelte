@@ -3,7 +3,7 @@
 </script>
 
 <div class="category-page">
-  <h1>音声技術学Ⅲ（発展）/ DTM</h1> <!--カテゴリ名を表示-->
+  <h1>音声技術学Ⅲ / DTM</h1> <!--カテゴリ名を表示-->
   <ArticleList categoryId="03-Mastering" /> <!--カテゴリIDで記事の絞り込み-->
 </div>
 
