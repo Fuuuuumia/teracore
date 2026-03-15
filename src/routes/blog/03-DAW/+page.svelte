@@ -3,8 +3,8 @@
 </script>
 
 <div class="category-page">
-  <h1>音楽ソフト（StudioOne6）のつかいかた</h1> <!--h1にカテゴリnameを入力-->
-  <ArticleList categoryId="03-StudioOne" /> <!--categoryIdにカテゴリidを入力-->
+  <h1>音楽ソフトのつかいかた</h1> <!--h1にカテゴリnameを入力-->
+  <ArticleList categoryId="03-DAW" /> <!--categoryIdにカテゴリidを入力-->
 </div>
 
 <style>
