@@ -26,6 +26,7 @@
   <nav class:open={mobileMenuOpen}>
     <a href={resolve('/')} onclick={closeMobileMenu}>Articles</a>
     <a href={resolve('/categories')} onclick={closeMobileMenu}>Categories</a>
+    <a href={resolve('/dictionary')} onclick={closeMobileMenu}>Dictionary</a>
     <a href={resolve('/about')} onclick={closeMobileMenu}>About Us</a>
     <a href={resolve('/contact')} onclick={closeMobileMenu}>Contact</a>
   </nav>

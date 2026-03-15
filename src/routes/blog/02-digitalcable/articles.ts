@@ -4,7 +4,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-01',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log1',
+        path: '/blog/02-digitalcable/log1',
         title: '1.デジタル信号とは',
         ath: '02',
         date: '2026-03-04',
@@ -13,7 +13,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-02',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log2',
+        path: '/blog/02-digitalcable/log2',
         title: '2.デジタル信号の用途',
         ath: '02',
         date: '2026-03-04',
@@ -22,7 +22,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-03',
         cat: '02-cat2',
-        path:  '/blog/02-cat2/log3',
+        path:  '/blog/02-digitalcable/log3',
         title: '3.映像を伝えるケーブル①',
         ath: '02',
         date: '2026-03-04',
@@ -31,7 +31,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-04',
         cat: '02-cat2',
-        path:  '/blog/02-cat2/log4',
+        path:  '/blog/02-digitalcable/log4',
         title: '4.映像を伝えるケーブル②',
         ath: '02',
         date: '2026-03-04',
@@ -40,7 +40,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-05',
         cat: '02-cat2',
-        path:  '/blog/02-cat2/log5',
+        path:  '/blog/02-digitalcable/log5',
         title: '5.ネットワークを作るケーブル',
         ath: '02',
         date: '2026-03-04',
@@ -49,7 +49,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-06',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log6',
+        path: '/blog/02-digitalcable/log6',
         title: '6.パソコンと周辺機器を繋ぐケーブル①',
         ath: '02',
         date: '2026-03-04',
@@ -58,7 +58,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-07',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log7',
+        path: '/blog/02-digitalcable/log7',
         title: '7.パソコンと周辺機器を繋ぐケーブル②',
         ath: '02',
         date: '2026-03-04',
@@ -67,7 +67,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-08',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log8',
+        path: '/blog/02-digitalcable/log8',
         title: '8.充電するためのケーブル',
         ath: '02',
         date: '2026-03-06',
@@ -76,7 +76,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-09',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log9',
+        path: '/blog/02-digitalcable/log9',
         title: '9.複雑化したUSB規格',
         ath: '02',
         date: '2026-03-07',
@@ -85,7 +85,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-10',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log10',
+        path: '/blog/02-digitalcable/log10',
         title: '10.USBハブの役割',
         ath: '02',
         date: '2026-03-08',
@@ -94,7 +94,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-11',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log11',
+        path: '/blog/02-digitalcable/log11',
         title: '11.HDMI分配器',
         ath: '02',
         date: '2026-03-08',
@@ -103,7 +103,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-12',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log12',
+        path: '/blog/02-digitalcable/log12',
         title: '12.キャプチャーボードとATEM',
         ath: '02',
         date: '2026-03-08',
@@ -112,7 +112,7 @@ export const articles: Article[] = [
     {
         id: '02-cat2-13',
         cat: '02-cat2',
-        path: '/blog/02-cat2/log13',
+        path: '/blog/02-digitalcable/log13',
         title: '13.映像信号をLANケーブルで伝える',
         ath: '02',
         date: '2026-03-08',
