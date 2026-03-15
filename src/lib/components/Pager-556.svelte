@@ -1,11 +1,29 @@
 <!-- 
-  +layout.svelteでこう指定する前提です
-  .simplelog:global(.pager .inner){
-  background: <色>
-  border-color: <色>;
+  +layout.svelte style例
+
+  .simplelog :global(a){
+    color: <強調色>;
+    text-decoration: none;
+    transition: 0.2s ease;
+    border-color: <強調色>;
+  }
+  .simplelog :global(a:not(.pager a)) {
+    border-bottom: 1px solid <強調色>;
+  }
+  .simplelog :global(.pager a) {
+    background: <背景色>;
+  }
+  .simplelog :global(a:not(.pager a)) {
+    padding: 0 2px;
+  }
+  .simplelog :global(a:hover) {
+    background: <強調色>;
+    color: <強調色中の文字色>;
+  }
+  .simplelog :global(a:not(.pager a):hover) {
+    border-radius: 0.25rem;
   }
 
-  styleはこれから調整します
 -->
 
 <script lang="ts">
@@ -18,15 +36,15 @@
   let article = $derived(getArticleByPathname(page.url.pathname));
   let articles = $derived([...getArticlesByCategory(article?.cat ?? "")].sort((a, b) => a.index - b.index));
   let atcIndex = $derived(article ? articles.indexOf(article) : -1);
+  let targetList = $derived(offset.map(i => atcIndex + i).filter(item => item >= 0 && item < articles.length));
 </script>
 
-{#if atcIndex !== -1}<div class="pager">
-  {#each offset as i}
-    {@const targetIndex = atcIndex + i}
-    {#if targetIndex >= 0 && targetIndex < articles.length}
-      <a class="pager-a" href="{resolve(articles[targetIndex].path as any)}">
+{#if atcIndex !== -1}<div class="pager" style="--cols: {targetList.length};">
+  {#each targetList as i}
+    {#if i >= 0 && i < articles.length}
+      <a href="{resolve(articles[i].path as any)}">
         <p style="font-size:0.8em">{(i < 0 ? "前" : "次") + "の記事へ"}</p>
-        <p style="font-size:1rem; font-weight: 700;">{articles[targetIndex].title as any}</p>
+        <p style="font-size:1rem; font-weight: 700;">{articles[i].title as any}</p>
       </a>
     {/if}
   {/each}
@@ -37,20 +55,24 @@
   .pager {
     max-width: 600px;
     margin: 0 auto;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
+    justify-content: center;
+    gap: 1rem 3rem;
+  }
+  @media (max-width: 500px){
+    .pager {
+      grid-template-columns: 1fr;
+    }
   }
   .pager a{
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: solid 1px;
+    padding: 0.8rem 1rem;
+    border: solid 2px;
     border-radius: 0.5rem;
     font-weight: 700;
   }
   .pager p {
-    margin: 0.5rem !important;
+    margin: 0 0.5rem !important;
   }
 
 </style>
