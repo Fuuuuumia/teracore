@@ -11,7 +11,7 @@ export interface Term{
 }
 
 let terms: Term[] = [];
-const modules = import.meta.glob("/src/routes/blog/*/dictionary.ts", {import: "terms", eager: true});
+const modules = import.meta.glob("/src/routes/blog/*/terms.ts", {import: "terms", eager: true});
 for(const path in modules){
   terms = terms.concat(modules[path] as Term[]);
 }
