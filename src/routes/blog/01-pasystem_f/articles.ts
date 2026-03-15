@@ -50,6 +50,10 @@ const input: InputArticle[] = [
     title: '第九回 DACの基礎',
     date: '2026-03-15',
   },
+  {
+    title: '第十回 DIの基礎',
+    date: '2026-03-15',
+  },
 ];
 
 // 固定値 + index補完
