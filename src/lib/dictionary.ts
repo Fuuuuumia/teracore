@@ -1,13 +1,15 @@
 export interface Tag{
-    name: string;
-    kana: string;
+    name: string;           //表示される名前です
+    kana: string;           //辞書順ソートに使用します、ひらがなでおねがいします。
+    description?: string;   //未実装、タグの簡単な説明を書く？
 }
 
 export interface Term{
-    name: string;       //表示される名前です
-    kana: string;       //辞書順ソートに使用します、ひらがなでおねがいします。
-    routeOrUrl: string; //resolve前のパスか、http://もしくはhttps://で始まるURLを指定してください。
-    tags: Tag[];        //意図的にタグを設定しない場合は空の配列にしてください。
+    name: string;           //表示される名前です
+    kana: string;           //辞書順ソートに使用します、ひらがなでおねがいします。
+    routeOrUrl: string;     //resolve前のパスか、http://もしくはhttps://で始まるURLを指定してください。
+    tags: Tag[];            //意図的にタグを設定しない場合は空の配列にしてください。nameとkanaが完全に一致している場合は重複が削除されるので、他の人のつけたタグは(そんなに)気にしなくていいです。
+    description?: string;   //未実装、用語の簡単な説明を書くと思います。
 }
 
 let terms: Term[] = [];
