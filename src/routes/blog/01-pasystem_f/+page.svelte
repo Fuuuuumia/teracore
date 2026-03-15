@@ -1,10 +1,14 @@
 <script lang="ts">
   import ArticleList from '$lib/components/ArticleList.svelte';
+  import { getCategoryById } from '$lib/data';
+
+  const CAT = "01-pasystem_f"; //カテゴリIDを入力
+  const CAT_RECORD = getCategoryById(CAT);
 </script>
 
 <div class="category-page">
-  <h1>PAシステム基礎</h1> <!--カテゴリ名を表示-->
-  <ArticleList categoryId="01-pasystem_f" /> <!--カテゴリIDで記事の絞り込み-->
+  <h1>{CAT_RECORD?.name}</h1> 
+  <ArticleList categoryId="{CAT}" /> 
 </div>
 
 <style>
