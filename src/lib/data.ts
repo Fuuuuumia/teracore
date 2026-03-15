@@ -33,9 +33,9 @@ export const writers: Writer[] = [
 export const categories: Category[] = [
   { id: '01-pasystem_f', name: 'PAシステム基礎', path: '/blog/01-pasystem_f' },
   { id: '02-cat2', name: 'デジタルケーブル基礎', path: '/blog/02-cat2'},
-  { id: '03-cat3', name: '音声技術学Ⅰ（基礎）', path:  '/blog/03-cat3'},
-  { id: '03-cat4', name: '音声技術学Ⅱ（理論）', path: '/blog/03-cat4'},
-  { id: '03-cat5', name: '音声技術学Ⅲ（発展）/ DTM', path: '/blog/03-cat5'},
+  { id: '03-StudioOne', name: '音楽ソフト（StudioOne6）のつかいかた', path: '/blog/03-StudioOne'},
+  { id: '03-AudioRefine', name: '音声技術Ⅰ / 音声技術Ⅱ', path: '/blog/03-AudioRefine'},
+  { id: '03-Mastering', name: '音声技術Ⅲ / DTM', path: '/blog/03-Mastering'},
   { id: '04-aviutlscript', name: 'AviUtlスクリプト（Lua）', path: '/blog/04-aviutlscript'},
 ];
 
