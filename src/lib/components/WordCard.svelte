@@ -42,29 +42,35 @@
 <style>
 .wc {
   position: relative;
-  border-bottom: 1px dotted #003160;
-  color: #003160;
+  border-bottom: 1px dotted #6b7280;
+  color: #1e3a8a; 
   text-decoration: none;
+  cursor: help;
 }
 
 .popup {
   position: absolute;
-  bottom: 130%;
+  bottom: 140%;
   left: 0;
 
-  width: 260px;
-  padding: 0.7rem 0.9rem;
+  width: 280px;
+  padding: 0.8rem 1rem;
 
-  background: #111827;
-  color: #e5e7eb;
+  background: #ffffff;
+  color: #111827;
 
   font-size: 0.85rem;
-  border-radius: 8px;
+  line-height: 1.45;
+
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 
   opacity: 0;
   pointer-events: none;
-  transform: translateY(6px);
-  transition: 0.15s ease;
+  transform: translateY(8px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 50;
 }
 
 .wc:hover .popup {
@@ -72,25 +78,36 @@
   transform: translateY(0);
 }
 
+.popup strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #0f172a;
+}
+
 .desc {
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
+  color: #374151;
 }
 
 .tags {
-  margin-top: 0.5rem;
+  margin-top: 0.55rem;
 }
 
 .tag {
   display: inline-block;
-  margin-right: 0.3rem;
-  padding: 0.1rem 0.35rem;
-  font-size: 0.7rem;
-  border-radius: 4px;
-  background: #374151;
+  margin: 0.1rem 0.25rem 0 0;
+  padding: 0.15rem 0.45rem;
+
+  font-size: 0.68rem;
+  border-radius: 999px;
+
+  background: #eef2ff;
+  color: #1e3a8a;
+  border: 1px solid #c7d2fe;
 }
 
 .wc-missing {
-  color: red;
-  border-bottom: 1px dashed red;
+  color: #dc2626;
+  border-bottom: 1px dashed #dc2626;
 }
 </style>
