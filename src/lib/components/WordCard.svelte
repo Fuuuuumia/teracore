@@ -1,13 +1,20 @@
 <script lang="ts">
   import { getTermByKana } from "$lib/dictionary";
+  import { resolve } from "$app/paths";
 
   let { kana } = $props();
 
   const term = $derived(getTermByKana(kana));
+
+  const resolveRouteOrUrl = (routeOrUrl: string) => {
+    if(routeOrUrl.startsWith("https://") || routeOrUrl.startsWith("http://")) 
+      return routeOrUrl;
+    else return resolve(routeOrUrl as any);
+  }
 </script>
 
 {#if term}
-<a class="wc" href={term.routeOrUrl}>
+<a class="wc" href={resolveRouteOrUrl(term.routeOrUrl)}>
   {term.name}
 
   <span class="popup">
