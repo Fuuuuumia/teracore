@@ -1,7 +1,6 @@
 <script lang="ts">
-    import Pager from '$lib/components/Pager.svelte';
-    import Title from '$lib/components/Title.svelte';
-    import WordCard from '$lib/components/WordCard.svelte';
+  import Pager from '$lib/components/Pager.svelte';
+  import Title from '$lib/components/Title.svelte';
 
   let {children} = $props();
 </script>
