@@ -17,6 +17,7 @@ export interface Article {
   cat: string;
   path: string;
   thum?: string;
+  chapter?: string;
   title: string;
   ath: string;
   date: string;
