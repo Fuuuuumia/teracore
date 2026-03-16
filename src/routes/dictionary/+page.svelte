@@ -59,7 +59,7 @@
     <div class="list">
         {#each adan as char}
             <h2 id={char} class="scroll-target">{char}行</h2>
-            {#each [...sortedTerms].filter((term)=>isKanaBetween(term.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as term}
+            {#each sortedTerms.filter((term)=>isKanaBetween(term.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as term}
                 <p><a href={resolveRouteOrUrl(term.routeOrUrl)}>{term.name}</a></p>
             {/each}
         {/each}
@@ -76,8 +76,8 @@
     <div class="list">
         {#each adan as char}
             <h2 id={char} class="scroll-target">{char}行</h2>
-            {#each [...sortedTags].filter((tag)=>isKanaBetween(tag.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as tag}
-                <button type="button" onclick={()=>{selectedTag=tag.name; listType="terms"}}>{tag.name}</button>
+            {#each sortedTags.filter((tag)=>isKanaBetween(tag.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as tag}
+                <div><button type="button" onclick={()=>{selectedTag=tag.name; listType="terms"}}>{tag.name}</button></div>
             {/each}
         {/each}
     </div>
@@ -120,7 +120,7 @@
     .list h2{
         font-size: 1.5rem;
         font-weight: 500;
-        color: #003160;
+        color: #777777;
         margin-top: 30px;
         margin-bottom: 30px;
     }
