@@ -133,6 +133,18 @@
     text-align: left;
   }
 
+  .simplelog :global(th[align="center"]) {
+    text-align: center;
+  }
+
+  .simplelog :global(th[align="right"]) {
+    text-align: right;
+  }
+  
+  .simplelog :global(th[align="left"]) {
+    text-align: left;
+  }
+
   .simplelog :global(td) {
     padding: 0.8rem;
     border-bottom: 1px solid #ddd;
@@ -156,14 +168,16 @@
   .simplelog :global(a) {
     color: #003160;
     text-decoration: none;
-    border-bottom: 1px solid #003160;
-    transition: 0.2s ease;
+    font-weight: 500;
+    position: relative;
+    padding: 0.25rem 0;
+    border-bottom: #003160 dashed 1px;
+    transition: color 0.2s, border-bottom-color 0.2s;
   }
 
   .simplelog :global(a:hover) {
-    background: #003160;
-    color: white;
-    padding: 0 4px;
+    color: #ff9900;
+    border-bottom-color: #ff9900;
   }
 
   @media (max-width: 768px) {
