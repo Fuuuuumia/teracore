@@ -28,15 +28,15 @@
 </div>
 
 <style>
-.meta h3 {
+div.meta h3 {
   margin: 0;
 }
 
-.meta h1 {
+div.meta h1 {
   margin-top: 0.5rem;
 }
 
-.meta p {
+div.meta p {
   color: gray;
   font-size: 0.9rem;
   margin: 0;
