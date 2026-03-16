@@ -2,8 +2,6 @@
     import image1 from "./image1.png";
 </script>
 
-### PAシステム基礎 第三章 機材の基礎を押さえよう
-
 今回はDACについて紹介します。
 
 ---
