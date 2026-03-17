@@ -6,7 +6,7 @@ const common = {
   index: null,
   id: null,
   path: null,
-  cat: new URL(".", import.meta.url).pathname.split("/").filter(Boolean).at(-1)!,
+  cat: CAT,
   ath: "04",
 };
 

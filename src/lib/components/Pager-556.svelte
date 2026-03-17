@@ -36,15 +36,15 @@
   let article = $derived(getArticleByPathname(page.url.pathname));
   let articles = $derived([...getArticlesByCategory(article?.cat ?? "")].sort((a, b) => a.index - b.index));
   let atcIndex = $derived(article ? articles.indexOf(article) : -1);
+  let targetList = $derived(offset.map(i => atcIndex + i).filter(item => item >= 0 && item < articles.length));
 </script>
 
-{#if atcIndex !== -1}<div class="pager">
-  {#each offset as i}
-    {@const targetIndex = atcIndex + i}
-    {#if targetIndex >= 0 && targetIndex < articles.length}
-      <a href="{resolve(articles[targetIndex].path as any)}">
+{#if atcIndex !== -1}<div class="pager" style="--cols: {targetList.length};">
+  {#each targetList as i}
+    {#if i >= 0 && i < articles.length}
+      <a href="{resolve(articles[i].path as any)}">
         <p style="font-size:0.8em">{(i < 0 ? "前" : "次") + "の記事へ"}</p>
-        <p style="font-size:1rem; font-weight: 700;">{articles[targetIndex].title as any}</p>
+        <p style="font-size:1rem; font-weight: 700;">{articles[i].title as any}</p>
       </a>
     {/if}
   {/each}
@@ -56,7 +56,7 @@
     max-width: 600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
     justify-content: center;
     gap: 1rem 3rem;
   }
