@@ -46,7 +46,7 @@ export const terms: Term[] = [
     {
         name: "Lightning",
         kana: "らいとにんぐ",
-        routeOrUrl: "/blog/02-digitalcable/log6#type-a",
+        routeOrUrl: "/blog/02-digitalcable/log6#lightning",
         tags: [{name: "デジタル", kana: "でじたる"}, {name: "ケーブル", kana: "けーぶる"}, {name: "USB", kana: "ゆーえすびー"}]
     },
     {
