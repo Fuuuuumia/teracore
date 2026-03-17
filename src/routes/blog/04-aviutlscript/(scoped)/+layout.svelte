@@ -170,6 +170,9 @@
     background: var(--sub-color);
     border-radius: 0.25rem;
   }
+  .simplelog :global(code:not(pre code)){
+    margin: 0 0.2rem;
+  }
   .simplelog :global(pre) {
     font-size: 0.9rem;
     padding: 1.2rem;
@@ -212,7 +215,7 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .simplelog :global(.table-outer table) {
+  .simplelog :global(table) {
     display: table;
     border-collapse: collapse;
     width: calc(100% - 1rem);
