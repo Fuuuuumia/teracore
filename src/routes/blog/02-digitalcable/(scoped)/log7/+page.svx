@@ -14,7 +14,7 @@ import image5 from './image5.jpg'
 
 ここから見ていくのは、**USB Type-B**と呼ばれるものですが、これだけで5種類もある意味不明仕様です。対して使わないのでへぇ～そうなんだ～くらいに思っておいてください。
 
-## USB 2.0 Micro-B
+<h2 id="micro-b-2">USB 2.0 Micro-B</h2>
 
 まず紹介するのは、**USB 2.0 Micro-B**と呼ばれるものです。これです。
 
@@ -22,7 +22,7 @@ import image5 from './image5.jpg'
 
 古いAndroidスマホには、これがついていたりします。この委員会でも、なにかしらの機械に給電するために、これが使われることがなくもないかもしれません。
 
-## USB 3.0 Micro-B
+<h2 id="micro-b-3">USB 3.0 Micro-B</h2>
 
 次に紹介するのは、**USB 3.0 Micro-B**です。さきほどの2.0の強化版ということでしょうね。意味がわからないですね。こんな形です。
 
@@ -30,7 +30,7 @@ import image5 from './image5.jpg'
 
 なんか横に長くなりましたね。ハードディスク(動画や写真などのデータを保存する装置)と、パソコンを繋ぐときに、ハードディスク側についているのをよく見ます。
 
-## USB 2.0 Mini-B
+<h2 id="mini-b-2">USB 2.0 Mini-B</h2>
 
 次に見ていくのは、**USB 2.0 Mini-B**です。こんな感じです。
 
@@ -38,7 +38,7 @@ import image5 from './image5.jpg'
 
 ちょっと私はあまり見たことがない気がするんですけど、デジカメとかについているらしいです。
 
-## USB 2.0 Standard-B
+<h2 id="standard-b-2">USB 2.0 Standard-B</h2>
 
 ~~もう疲れてきたんですけど、~~次に見ていくのは、**USB 2.0 Standard-B**です。こいつです。
 
@@ -46,7 +46,7 @@ import image5 from './image5.jpg'
 
 コピー機とかについていることが多いと思われます。もしかしたら見かけるかもね(適当)。
 
-## USB 3.0 Standard-B
+<h2 id="standard-b-3">USB 3.0 Standard-B</h2>
 
 ラストです。**USB 3.0 Standard-B**です。上の2.0 Standard-Bの強化版だと思います。これです。
 

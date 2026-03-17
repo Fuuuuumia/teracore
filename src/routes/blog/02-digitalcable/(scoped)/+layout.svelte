@@ -21,6 +21,9 @@
     font-size: 1.05rem;
   }
 
+  .content :global(*){
+    scroll-margin-top: 60px;
+  }
 
   .simplelog :global(h1) {
     font-size: 2.6rem;
