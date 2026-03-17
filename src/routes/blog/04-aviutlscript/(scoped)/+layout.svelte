@@ -106,7 +106,7 @@
   }
   .simplelog :global(h3) {
     font-size: var(--font-size-h3);
-    margin: 2rem 0 0;
+    margin: 2rem 0 1rem;
   }
   .simplelog :global(p){
     font-size: var(--font-size-p);
