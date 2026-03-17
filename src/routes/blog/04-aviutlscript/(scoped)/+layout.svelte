@@ -22,7 +22,7 @@
 <main class = "simplelog">
   <div class="bg"></div>
   <div class="content">
-    <Title cat = {true}/>
+    <Title/>
     {@render children()}
   <hr>
   <Pager/>
