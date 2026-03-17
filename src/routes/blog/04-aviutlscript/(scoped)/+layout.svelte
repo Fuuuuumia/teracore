@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Pager from '$lib/components/Pager-556.svelte';
-  import Title from '$lib/components/Title.svelte';
+  import Title from '../Title.svelte';
 
   let {children} = $props();
 
