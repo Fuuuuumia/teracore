@@ -168,10 +168,9 @@
   .simplelog :global(a) {
     color: #003160;
     text-decoration: none;
-    font-weight: 500;
     position: relative;
-    padding: 0.25rem 0;
-    border-bottom: #003160 dashed 1px;
+    margin: 0 0.25rem;
+    border-bottom: #003160 solid 1px;
     transition: color 0.2s, border-bottom-color 0.2s;
   }
 
@@ -252,5 +251,9 @@
     .simplelog :global(blockquote) {
       padding: 0.8rem 1rem;
     }
+  }
+
+  .simplelog :global(.toc){
+    background-color: #eeeeee;
   }
 </style>
