@@ -7,7 +7,7 @@
 
 <main class = "simplelog">
   <div class="content">
-    <Title chapter = {true} date = {true}/>
+    <Title meta = {true} chapter = {true}/>
     {@render children()}
     <Pager/>
   </div>
