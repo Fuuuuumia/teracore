@@ -13,9 +13,6 @@
 <div class = "meta">
 {#if cat || date}
     <p>
-      {#if date}
-        {article?.date} 》
-      {/if}
       {#if cat}
         <a href="./">
           {category?.name} 
@@ -26,6 +23,9 @@
         <a href="./">
          {article?.chapter}
         </a>
+      {/if}
+      {#if date}
+        Post: {article?.date}
       {/if}
     </p>
   {/if}
