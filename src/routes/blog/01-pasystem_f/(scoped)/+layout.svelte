@@ -51,6 +51,7 @@
 
   .simplelog :global(p) {
     margin: 1.3rem 0;
+    text-indent: 1rem;
   }
 
 
