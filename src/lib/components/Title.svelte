@@ -39,10 +39,6 @@
 </div>
 
 <style>
-div.meta h3 {
-  margin: 0;
-  font-size: 1.2rem;
-}
 
 div.meta h1 {
   margin-top: 0rem;
