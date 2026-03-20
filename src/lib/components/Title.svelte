@@ -52,7 +52,6 @@ div.meta p {
 div.meta a {
   color: #000;
   font-size: 0.9rem;
-  margin: 0;
   margin-right: 0.5rem;
 }
 
