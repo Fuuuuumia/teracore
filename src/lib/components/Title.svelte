@@ -11,7 +11,7 @@
 
 
 
-<div class = "meta">
+<div class = "nav">
   {#if cat || chapter || date}
     <p>
       {#if cat || chapter}
@@ -30,15 +30,16 @@
           {article?.chapter}
         </a>
       {/if}
-
-      {#if date}
-        {#if cat || chapter}
-           <br>
-        {/if}
-        Post: {article?.date}
-      {/if}
     </p>
   {/if}
+
+  <div class = "meta">
+    {#if date}
+      <p>
+        Post: {article?.date}
+      </p>
+    {/if}
+  </div>
 
   {#if title}
     <h1>{article?.title}</h1>
@@ -47,19 +48,27 @@
 
 <style>
 
-div.meta h1 {
+div.nav h1 {
   margin-top: 0rem;
+}
+
+div.nav p {
+  color: #000;
+  font-size: 0.9rem;
+  margin: 0;
+  text-indent: 0;
+}
+
+div.nav a {
+  color: #000;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
 }
 
 div.meta p {
   color: gray;
   font-size: 0.9rem;
   margin: 0;
-}
-div.meta a {
-  color: #000;
-  font-size: 0.9rem;
-  margin-right: 0.5rem;
 }
 
 </style>
