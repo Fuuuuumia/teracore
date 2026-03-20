@@ -24,15 +24,13 @@
 
   {#if cat || chapter}
     <p>
-      {#if cat || chapter}
-        <a href={resolve('/categories')}>
-          Categories 
-        </a>
-        》
-        <a href="./">
-          {category?.name} 
-        </a>
-      {/if}
+      <a href={resolve('/categories')}>
+        Categories 
+      </a>
+      》
+      <a href="./">
+        {category?.name} 
+      </a>
 
       {#if chapter}
         》
