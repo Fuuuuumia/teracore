@@ -1,6 +1,7 @@
 <script lang="ts">
   import Pager from '$lib/components/Pager.svelte';
   import Title from '$lib/components/Title.svelte';
+  import TOC from '$lib/components/TOC.svelte';
 
   let {children} = $props();
 </script>
@@ -8,6 +9,7 @@
 <main class = "simplelog">
   <div class="content">
     <Title cat = {true} chapter = {true} date = {true}/>
+    <TOC/>
     {@render children()}
     <Pager/>
   </div>
@@ -252,5 +254,9 @@
     .simplelog :global(blockquote) {
       padding: 0.8rem 1rem;
     }
+  }
+
+  .simplelog :global(.toc){
+    background-color: #eeeeee;
   }
 </style>
