@@ -18,16 +18,16 @@
         <a href={resolve('/categories')}>
           Categories 
         </a>
-         》
+        》
         <a href="./">
           {category?.name} 
         </a>
       {/if}
 
       {#if chapter}
-         》
+        》
         <a href="./">
-         {article?.chapter}
+          {article?.chapter}
         </a>
       {/if}
 
