@@ -43,7 +43,7 @@
   {#each targetList as i}
     {#if i >= 0 && i < articles.length}
       <a href="{resolve(articles[i].path as any)}">
-        <p style="font-size:0.8em">{(i < 0 ? "前" : "次") + "の記事へ"}</p>
+        <p style="font-size:0.8em">{(i - atcIndex < 0 ? "前" : "次") + "の記事へ"}</p>
         <p style="font-size:1rem; font-weight: 700;">{articles[i].title as any}</p>
       </a>
     {/if}

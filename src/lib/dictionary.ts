@@ -31,3 +31,11 @@ export const getTermsByTagName = (tagName: string): Term[] => {
         return terms.filter((term)=>term.tags.map((tag)=>tag.name).includes(tagName));
     }
 }
+
+export const termMap = new Map(
+  terms.map((term) => [term.kana, term])
+);
+
+export const getTermByKana = (kana: string): Term | undefined => {
+  return termMap.get(kana);
+};

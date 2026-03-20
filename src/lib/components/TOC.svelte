@@ -99,7 +99,7 @@ onMount(() => {
     margin: 0;
   }
   .toc ul{
-    margin: 0;
+    margin: 0 !important;
   }
   .toc li{
     margin: 0.3rem 0 !important;
