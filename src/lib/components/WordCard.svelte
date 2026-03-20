@@ -43,7 +43,7 @@
 .wc{
   cursor: help;
   font-weight: 500;
-
+  position: relative;
 }
 
 .popup {
