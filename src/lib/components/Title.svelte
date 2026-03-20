@@ -13,20 +13,24 @@
 <div class = "meta">
 {#if cat || date}
     <p>
+      {#if date}
+        {article?.date} 》
+      {/if}
       {#if cat}
         <a href="./">
-          {category?.name}
+          {category?.name} 
         </a>
-       {/if}
-      {#if date}
-        《      {article?.date}
+      {/if}
+      {#if chapter}
+        》
+        <a href="./">
+         {article?.chapter}
+        </a>
       {/if}
     </p>
   {/if}
 
-  {#if chapter}
-    <h3>{article?.chapter}</h3>
-  {/if}
+  
 
 
   {#if title}
@@ -50,10 +54,10 @@ div.meta p {
   margin: 0;
 }
 div.meta a {
-  color: gray;
+  color: #000;
   font-size: 0.9rem;
   margin: 0;
-  border-bottom: 0;
+  margin-right: 0.5rem;
 }
 
 </style>
