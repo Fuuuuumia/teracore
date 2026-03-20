@@ -12,7 +12,17 @@
 
 
 <div class = "nav">
-  {#if cat || chapter || date}
+  {#if date}
+    <div class = "meta">
+      {#if date}
+        <p>
+          Post: {article?.date}
+        </p>
+      {/if}
+    </div>
+  {/if}
+
+  {#if cat || chapter}
     <p>
       {#if cat || chapter}
         <a href={resolve('/categories')}>
@@ -32,14 +42,6 @@
       {/if}
     </p>
   {/if}
-
-  <div class = "meta">
-    {#if date}
-      <p>
-        Post: {article?.date}
-      </p>
-    {/if}
-  </div>
 
   {#if title}
     <h1>{article?.title}</h1>
