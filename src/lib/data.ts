@@ -10,6 +10,8 @@ export interface Category {
   id: string;
   name: string;
   path: string;
+  detail?: string;
+  tags?: string[];
 }
 
 export interface Article {
@@ -22,6 +24,7 @@ export interface Article {
   ath: string;
   date: string;
   index: number;
+  tags?: string[];
 }
 
 export const writers: Writer[] = [
@@ -37,7 +40,14 @@ export const categories: Category[] = [
   { id: '03-DAW', name: '音楽ソフトのつかいかた', path: '/blog/03-DAW'},
   { id: '03-AudioRefine', name: '音声技術Ⅰ / 音声技術Ⅱ', path: '/blog/03-AudioRefine'},
   { id: '03-Mastering', name: '音声技術Ⅲ / DTM', path: '/blog/03-Mastering'},
-  { id: '04-aviutlscript', name: 'AviUtlスクリプト（Lua）', path: '/blog/04-aviutlscript'},
+  {
+    id: '04-aviutlscript',
+    name: 'AviUtlスクリプト（Lua）',
+    path: '/blog/04-aviutlscript',
+    detail:
+      `AviUtlスクリプトの読み書きについて解説します。`,
+    tags: ["プログラミング", "動画編集"]
+  },
 ];
 
 let articles: Article[]= [];
@@ -45,6 +55,14 @@ const modules = import.meta.glob("/src/routes/blog/*/articles.ts", {import: "art
 for(const path in modules){
   articles = articles.concat(modules[path] as Article[]);
 }
+
+articles = articles.map(article => {
+  const category = categories.find(cat => cat.id === article.cat);
+  return {
+    ...article,
+    tags: category?.tags || article.tags || []
+  };
+});
 
 export function getArticlesByCategory(categoryId: string): Article[] {
   if (categoryId === 'all') {
