@@ -127,7 +127,7 @@
   .line{
     width:1px;
     height: auto;
-    margin:0.5rem 1rem;
+    margin: 0 1rem;
     background: #e5e7eb;
   }
 
@@ -177,7 +177,7 @@
     .line{
       height: 1px;
       width: auto;
-      margin:1rem 0.5rem;
+      margin:1rem 0;
       background: #e5e7eb;}
 
     .meta-item {
