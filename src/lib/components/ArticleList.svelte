@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getArticlesByCategory, getWriterById, writers } from '$lib/data';
   import { resolve } from '$app/paths';
-
+  
   let {categoryId} = $props();
 
   const ITEMS_PER_PAGE = 20;
@@ -9,22 +9,32 @@
   let currentPage = $state(1);
   let filterath = $state('');
   let sortOrder = $state('desc'); // 'desc' | 'asc'
+  let selectedTags = $state<string[]>([]);
 
-  let allPosts = $derived(getArticlesByCategory(categoryId));
-  
-  let filteredPosts = $derived(allPosts.filter(post => {
-    if (filterath && post.ath !== filterath) return false;
+  let allArticles = $derived(getArticlesByCategory(categoryId));
+
+  let availableTags = $derived([
+    ...new Set(allArticles.flatMap(a => a.tags ?? []))
+  ].sort());
+
+  let filteredArticles = $derived(allArticles.filter(article => {
+    if (filterath && article.ath !== filterath) return false;
+    if (selectedTags.length > 0) {
+      const articleTags = article.tags ?? [];
+      const hasAllSelectedTags = selectedTags.every(tag => articleTags.includes(tag));
+      if (!hasAllSelectedTags) return false;
+    }
     return true;
   }));
 
-  let sortedPosts = $derived([...filteredPosts].sort((a, b) => {
+  let sortedArticles = $derived([...filteredArticles].sort((a, b) => {
     let comparison = a.date.localeCompare(b.date);
     if(comparison === 0) comparison = a.index - b.index;
     return sortOrder === 'desc' ? -comparison : comparison;
   }));
 
-  let totalPages = $derived(Math.ceil(sortedPosts.length / ITEMS_PER_PAGE));
-  let paginatedPosts = $derived(sortedPosts.slice(
+  let totalPages = $derived(Math.ceil(sortedArticles.length / ITEMS_PER_PAGE));
+  let paginatedArticles = $derived(sortedArticles.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   ));
@@ -37,6 +47,7 @@
     currentPage = 1;
     filterath = '';
     sortOrder = 'desc';
+    selectedTags = [];
   };
 
   const formatDate = (dateStr: string) => {
@@ -45,19 +56,29 @@
   };
 
   const getStartItem = () => {
-    return sortedPosts.length === 0 ? 0 : (currentPage - 1) * ITEMS_PER_PAGE + 1;
+    return sortedArticles.length === 0 ? 0 : (currentPage - 1) * ITEMS_PER_PAGE + 1;
   };
 
   const getEndItem = () => {
-    return Math.min(currentPage * ITEMS_PER_PAGE, sortedPosts.length);
+    return Math.min(currentPage * ITEMS_PER_PAGE, sortedArticles.length);
+  };
+
+  const toggleTag = (tag: string) => {
+    if (selectedTags.includes(tag)) {
+      selectedTags = selectedTags.filter(t => t !== tag);
+    } else {
+      selectedTags = [...selectedTags, tag];
+    }
+    currentPage = 1; // フィルタ変更時は1ページ目に戻す
   };
 </script>
 
-{#if allPosts.length === 0}
-  <p class="no-posts">このカテゴリに記事はまだありません</p>
+{#if allArticles.length === 0}
+  <p class="no-articles">このカテゴリに記事はまだありません</p>
 {:else}
   <div class="filter-section">
     <div class="filter-row">
+      <button class="reset-btn" onclick={resetFilters}>リセット</button>
       <div class="filter-input">
         <label for="ath-filter">著者</label>
         <select id="ath-filter" bind:value={filterath}>
@@ -67,7 +88,6 @@
           {/each}
         </select>
       </div>
-
       <div class="filter-input">
         <label for="sort-order">並び順</label>
         <select id="sort-order" bind:value={sortOrder}>
@@ -75,26 +95,43 @@
           <option value="asc">古い順</option>
         </select>
       </div>
-
-      <button class="reset-btn" onclick={resetFilters}>リセット</button>
+    </div>
+    <div class="filter-row">
+      <div class="filter-input">
+        <p class="label">タグ選択</p>
+        {#if availableTags.length === 0}
+          <p class="label" style="font-weight: 500; color: #666;">このカテゴリにはタグがありません</p>
+        {:else}
+          <div class="tags-outer">
+            {#each availableTags as tag}
+              <button 
+                class:active={selectedTags.includes(tag)}
+                onclick={() => toggleTag(tag)}
+              >
+                {tag}
+              </button>
+            {/each}
+          </div>
+        {/if}
+      </div>
     </div>
   </div>
 
   
-  {#if paginatedPosts.length > 0}
+  {#if paginatedArticles.length > 0}
     <div class="results-header">
-      全{sortedPosts.length}件中 {getStartItem()}–{getEndItem()}件を表示
+      全{sortedArticles.length}件中 {getStartItem()}–{getEndItem()}件を表示
     </div>
 
     
-    <div class="posts-grid">
-      {#each paginatedPosts as post (post.id)}
-        <a href={resolve(post.path as any)} class="post-card-link">
-          <div class="post-card">
+    <div class="articles-grid">
+      {#each paginatedArticles as article (article.id)}
+        <a href={resolve(article.path as any)} class="article-card-link">
+          <div class="article-card">
             <div class="card-base">
               <div class="thum">
-                {#if post.thum}
-                  <img src={resolve(post.thum as any)} alt={post.title} />
+                {#if article.thum}
+                  <img src={resolve(article.thum as any)} alt={article.title} />
                 {:else}
                   <div class="placeholder">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -108,26 +145,35 @@
 
               <div class="card-info">
                 <h3 class="title">
-                  {post.title}
+                  {article.title}
                 </h3>
                 <div class="meta">
-                  {#if getWriterById(post.ath)}
-                    <span class="ath">
+                  {#each article.tags as tag}
+                    <span class="meta-item">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M 4 5 h 8 L 22 15 L 14 23 L 4 13 Z"/>
+                        <circle fill="currentColor" cx="9" cy="10" r="1"/>
+                      </svg>
+                      {tag}
+                    </span>
+                  {/each}
+                  {#if getWriterById(article.ath)}
+                    <span class="meta-item">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                         <circle cx="12" cy="7" r="4"/>
                       </svg>
-                      {getWriterById(post.ath)?.name}
+                      {getWriterById(article.ath)?.name}
                     </span>
                   {/if}
-                  <span class="date">
+                  <span class="meta-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <rect x="3" y="4" width="18" height="18" rx="2"/>
                       <line x1="16" y1="2" x2="16" y2="6"/>
                       <line x1="8" y1="2" x2="8" y2="6"/>
                       <line x1="3" y1="10" x2="21" y2="10"/>
                     </svg>
-                    {formatDate(post.date)}
+                    {formatDate(article.date)}
                   </span>
                 </div>
               </div>
@@ -162,7 +208,7 @@
       </div>
     {/if}
   {:else}
-    <p class="no-posts">フィルタ条件に一致する記事がありません</p>
+    <p class="no-articles">フィルタ条件に一致する記事がありません</p>
   {/if}
 {/if}
 
@@ -176,7 +222,7 @@
     gap: 1rem;
     flex-wrap: wrap;
     align-items: flex-end;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     background-color: white;
     border-radius: 12px;
   }
@@ -186,8 +232,8 @@
     flex-direction: column;
     gap: 0.4rem;
   }
-
-  .filter-input label {
+  .filter-input label,
+  .filter-input .label {
     font-size: 0.75rem;
     font-weight: 600;
     color: #333;
@@ -195,8 +241,14 @@
     letter-spacing: 0.5px;
   }
 
+  .tags-outer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
   .filter-input select,
-  .filter-input input {
+  .filter-input button {
     padding: 0.6rem 0.8rem;
     border: 1px solid #d0d5dd;
     border-radius: 6px;
@@ -206,11 +258,13 @@
     transition: border-color 0.2s;
   }
 
-  .filter-input select:focus,
-  .filter-input input:focus {
+  .filter-input select:focus {
     outline: none;
     border-color: #333;
     box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+  }
+  .filter-input button.active{
+    background: #f0f2f5;
   }
 
   .reset-btn {
@@ -238,18 +292,18 @@
     border-bottom: 1px solid #e5e7eb;
   }
 
-  .posts-grid {
+  .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .post-card-link {
+  .article-card-link {
     text-decoration: none;
   }
 
-  .post-card {
+  .article-card {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
@@ -262,7 +316,7 @@
     cursor: pointer;
   }
 
-  .post-card-link:hover .post-card {
+  .article-card-link:hover .article-card {
     border-left-color: #ff9900;
     box-shadow: 0 8px 16px rgba(255, 153, 0, 0.2);
   }
@@ -318,8 +372,7 @@
     gap: 0.3rem;
   }
 
-  .date,
-  .ath {
+  .meta-item{
     display: flex;
     align-items: center;
     gap: 0.3rem;
@@ -327,8 +380,7 @@
     color: #666;
   }
 
-  .date svg,
-  .ath svg {
+  .meta-item svg{
     flex-shrink: 0;
     width: 12px;
     height: 12px;
@@ -384,7 +436,7 @@
     font-size: 0.875rem;
   }
 
-  .no-posts {
+  .no-articles {
     text-align: center;
     color: #999;
     padding: 2rem;
@@ -392,7 +444,7 @@
   }
 
   @media (max-width: 1024px) {
-    .posts-grid {
+    .articles-grid {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   }
@@ -407,12 +459,13 @@
       width: 100%;
     }
 
-    .filter-input label {
+    .filter-input label,
+    .filter-input .label {
       font-size: 0.7rem;
     }
 
     .filter-input select,
-    .filter-input input {
+    .filter-input button  {
       padding: 0.7rem 0.8rem;
       min-height: 44px;
       font-size: 1rem;
@@ -424,12 +477,12 @@
       padding: 0.8rem;
     }
 
-    .posts-grid {
+    .articles-grid {
       grid-template-columns: 1fr;
       gap: 1rem;
     }
 
-    .post-card {
+    .article-card {
       height: auto;
       flex-direction: column;
     }
@@ -457,8 +510,7 @@
       gap: 0.4rem;
     }
 
-    .date,
-    .ath {
+    .meta-item {
       font-size: 0.75rem;
     }
 
@@ -496,7 +548,7 @@
       margin-bottom: 1rem;
     }
 
-    .post-card {
+    .article-card {
       height: auto;
     }
 
@@ -514,13 +566,12 @@
       margin-bottom: 0.25rem;
     }
 
-    .date,
-    .ath {
+    .meta-item {
       font-size: 0.7rem;
     }
 
     .filter-input select,
-    .filter-input input {
+    .filter-input button  {
       font-size: 16px;
     }
 
