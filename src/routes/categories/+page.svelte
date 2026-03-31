@@ -24,9 +24,31 @@
   <div class="categories-grid">
     {#each categoryStats as category}
       <a href={resolve(category.path as any)} class="category-card">
+        <h2>{category.name}</h2>
         <div class="card-content">
-          <h2>{category.name}</h2>
-          <p class="post-count">{category.postCount} articles</p>
+          <div class="meta">
+            <span class="meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="1"/>
+                  <path d="M 6 7 h 12"/>
+                  <path d="M 6 12 h 12"/>
+              </svg>
+              {category.postCount} articles
+            </span>
+            {#each category.tags as tag}
+              <span class="meta-item" style="font-size: 0.9rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M 4 5 h 8 L 22 15 L 14 23 L 4 13 Z"/>
+                  <circle fill="currentColor" cx="9" cy="10" r="1"/>
+                </svg>
+                {tag}
+              </span>
+            {/each}
+          </div>
+          <div class="line"></div>
+          <div class="category-detail">
+            {category.detail}
+          </div>
         </div>
       </a>
     {/each}
@@ -56,28 +78,24 @@
 
   .category-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    min-height: 160px;
+    padding: 1rem 2rem;
     background: white;
     color: #003160;
     text-decoration: none;
-    border-radius: 8px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    position: relative;
     border: 1px solid #e5e7eb;
     border-left: 4px solid #003160;
-    height: 160px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
     cursor: pointer;
   }
 
   .category-card:hover {
     box-shadow: 0 8px 16px rgba(255, 153, 0, 0.2);
     border-left-color: #ff9900;
-  }
-
-  .card-content {
-    text-align: center;
+    color: #ff9900;
   }
 
   .category-card h2 {
@@ -86,10 +104,38 @@
     font-weight: 600;
   }
 
-  .post-count {
-    margin: 0;
-    font-size: 0.95rem;
-    opacity: 0.9;
+  .card-content{
+    padding: 0 0.5rem;
+    display: flex;
+    height: 100%;
+  }
+  
+  .meta{
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meta-item{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .line{
+    width:1px;
+    height: auto;
+    margin:0.5rem 1rem;
+    background: #e5e7eb;
+  }
+
+  .category-detail{
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    white-space: pre-line;
   }
 
   .results-header {
@@ -116,15 +162,25 @@
     }
 
     .category-card {
-      height: 120px;
-      padding: 1.5rem;
+      min-height: 120px;
+      padding: 1rem 1.5rem;
     }
 
     .category-card h2 {
       font-size: 1.25rem;
     }
 
-    .post-count {
+    .card-content{
+      flex-direction: column;
+    }
+
+    .line{
+      height: 1px;
+      width: auto;
+      margin:1rem 0.5rem;
+      background: #e5e7eb;}
+
+    .meta-item {
       font-size: 0.9rem;
     }
   }
@@ -139,8 +195,8 @@
     }
 
     .category-card {
-      height: 100px;
-      padding: 1rem;
+      min-height: 100px;
+      padding: 1rem 1.5rem;
     }
 
     .category-card h2 {
@@ -148,7 +204,7 @@
       margin-bottom: 0.25rem;
     }
 
-    .post-count {
+    .meta-item {
       font-size: 0.85rem;
     }
 

@@ -1,13 +1,28 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Pager from '$lib/components/Pager-556.svelte';
-    import Title from '$lib/components/Title.svelte';
+  import Title from '../Title.svelte';
+
   let {children} = $props();
+
+  onMount(() => {
+    const tables = document.querySelectorAll('.simplelog .content table');
+    
+    tables.forEach(table => {
+      if (table.parentElement?.classList.contains('table-outer')) return;
+
+      const outer = document.createElement('div');
+      outer.className = 'table-outer';
+      table.parentNode?.insertBefore(outer, table);
+      outer.appendChild(table);
+    });
+  });
 </script>
 
 <main class = "simplelog">
   <div class="bg"></div>
   <div class="content">
-    <Title cat = {true}/>
+    <Title/>
     {@render children()}
   <hr>
   <Pager/>
@@ -16,6 +31,7 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Zen+Maru+Gothic:wght@500;700&display=swap');
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css');
 
   :root{
     --bg-color: #fdfdfd;
@@ -68,7 +84,7 @@
   }
 
   ::selection {
-  background-color: #c7c7c7;
+  background-color: color-mix(in srgb, transparent 80%, var(--main-color));
   }
 
   .simplelog :global(h1), .simplelog :global(h2), .simplelog :global(h3){
@@ -90,7 +106,7 @@
   }
   .simplelog :global(h3) {
     font-size: var(--font-size-h3);
-    margin: 2rem 0 0;
+    margin: 2rem 0 1rem;
   }
   .simplelog :global(p){
     font-size: var(--font-size-p);
@@ -154,10 +170,11 @@
     background: var(--sub-color);
     border-radius: 0.25rem;
   }
+  .simplelog :global(code:not(pre code)){
+    margin: 0 0.2rem;
+  }
   .simplelog :global(pre) {
     font-size: 0.9rem;
-    background: var(--pre-bg-color);
-    color: var(--pre-code-color);
     padding: 1.2rem;
     border-radius: 10px;
     margin: 2rem 0;
@@ -190,12 +207,21 @@
     box-shadow: 0 0 1rem color-mix(in srgb, var(--main-color) 40%, transparent);
   }
 
-  .simplelog :global(table) {
+    /* 前述のCSS設定を適用 */
+  .simplelog :global(.table-outer) {
     width: calc(100% - 1rem);
+    overflow-x: auto;
+    margin: 1.5rem 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .simplelog :global(table) {
     display: table;
     border-collapse: collapse;
+    width: calc(100% - 1rem);
+    margin: 0;
+    font-size: var(--font-size-p);
     white-space: nowrap;
-    margin: 1.5rem 0.5rem;
   }
 
   .simplelog :global(th) {
