@@ -118,4 +118,13 @@ export const articles: Article[] = [
         date: '2026-03-08',
         index: 13,
     },
+    {
+        id: '02-cat2-14',
+        cat: '02-cat2',
+        path: '/blog/02-digitalcable/log14',
+        title: '14.演習問題',
+        ath: '02',
+        date: '2026-03-08',
+        index: 14,
+    },
 ];
