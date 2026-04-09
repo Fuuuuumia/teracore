@@ -36,7 +36,7 @@ export const writers: Writer[] = [
 
 export const categories: Category[] = [
   { id: '01-pasystem_f', name: 'PAシステム基礎', path: '/blog/01-pasystem_f' },
-  { id: '02-cat2', name: 'デジタルケーブル基礎', path: '/blog/02-digitalcable'},
+  { id: '02-digital_cable', name: 'デジタルケーブル基礎', path: '/blog/02-digital_cable'},
   { id: '03-DAW', name: '音楽ソフトのつかいかた', path: '/blog/03-DAW'},
   { id: '03-AudioRefine', name: '音声技術Ⅰ / 音声技術Ⅱ', path: '/blog/03-AudioRefine'},
   { id: '03-Mastering', name: '音声技術Ⅲ / DTM', path: '/blog/03-Mastering'},
@@ -44,6 +44,7 @@ export const categories: Category[] = [
     id: '04-aviutlscript', name: 'AviUtlスクリプト（Lua）', path: '/blog/04-aviutlscript', tags: ["プログラミング", "動画編集"], 
     detail: `AviUtlスクリプト関連資料集` 
   },
+  {id: '02-obs_studio', name: 'OBS Studio入門', path: '/blog/02-obs_studio'},
 ];
 
 let articles: Article[]= [];
