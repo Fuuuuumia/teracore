@@ -35,7 +35,10 @@ export const writers: Writer[] = [
 ];
 
 export const categories: Category[] = [
-  { id: '01-pasystem_f', name: 'PAシステム基礎', path: '/blog/01-pasystem_f' },
+  { id: '01-pasystem_f', name: 'PAシステム基礎', path: '/blog/01-pasystem_f' ,
+    detail: `知識ゼロ~基本のシステム構築までに必要な知識を整理して説明します！`,
+    tags: ["音響", "舞台演出"]
+  },
   { id: '02-digital_cable', name: 'デジタルケーブル基礎', path: '/blog/02-digital_cable'},
   { id: '03-DAW', name: '音楽ソフトのつかいかた', path: '/blog/03-DAW'},
   { id: '03-AudioRefine', name: '音声技術Ⅰ / 音声技術Ⅱ', path: '/blog/03-AudioRefine'},

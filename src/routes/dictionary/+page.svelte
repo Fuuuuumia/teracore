@@ -63,7 +63,7 @@
                 {#each sortedTerms.filter((term)=>isKanaBetween(term.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as term}
                     <p><a href={resolveRouteOrUrl(term.routeOrUrl)}>{term.name}</a></p>
                 {/each}
-           2 {/each}
+            {/each}
         </div>
     {:else}
         <div class="toc">
