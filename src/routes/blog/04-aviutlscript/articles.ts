@@ -15,48 +15,38 @@ type InputArticle = Omit<Article, keyof typeof common> & Partial<Article>;
 // 記事リスト
 const input: InputArticle[] = [
   {
-    title: "1.AviUtlスクリプトとは",
-    date: "2026-03-12",
+    title: "1.このカテゴリーについて",
+    date: "2026-04-06",
   },
   {
-    title: "2.Luaの文法",
-    date: "2026-03-17",
+    title: "2.独学用ロードマップ",
+    date: "2026-04-06",
   },
   {
-    title: "3.スクリプトファイルの構成",
-    date: "2026-03-17",
+    title: "3.Luaの文法",
+    date: "2026-04-06",
   },
-/*
+  /*
   {
-    title: "4.スクリプトを読もう",
-    date: "2026-03-16",
-  },
-  {
-    title: "5.スクリプトを書こう",
-    date: "2026-03-16",
+    title: "4.自作スクリプト解説1(anm)",
+    date: "2026-04-06",
   },
   {
-    title: "6.既存のスクリプトを読もう",
-    date: "2026-03-16",
-  },
+    title: "5.自作スクリプト解説2（obj）",
+    date: "2026-04-06",
+    },
   {
-    title: "7.エラーの読み方",
-    date: "2026-03-16",
-  },
-  {
-    title: "8.便利サイトまとめ",
-    date: "2026-03-16",
+    title: "ex1.AviUtl ExEdit2での変化",
+    date: "2026-04-06",
   },
   */
 ];
 
-// 固定値 + index補完
 export const articles: Article[] =
   input.map((data, i) => ({
     ...common,
-    index: i + 1,
-    id : CAT + "-" + String(i+1).padStart(2, '0'),
-    path :  "/blog/" + CAT + "/" + String(i+1).padStart(2, '0'),
+    index: i+1,
+    id: CAT + "-" + String(i+1).padStart(2, '0'),
+    path: "/blog/" + CAT + "/" + String(i+1).padStart(2, '0'),
     ...data,
   }));
-  
