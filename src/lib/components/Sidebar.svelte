@@ -121,23 +121,6 @@ aside::-webkit-scrollbar {
   width: 0px;
 }
 
-
-.Categories {
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #003160;
-  padding: 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  display: block;
-}
-
-.Categories:hover {
-  background-color: rgba(0, 49, 96, 0.1);
-}
-
-
 ul {
   list-style: none;
   padding: 0;
@@ -192,11 +175,6 @@ ul li a:hover::after {
   width: 100%;
 }
 
-ul li a.active {
-  color: #ff9900;            
-  border-right: 0.25rem solid #ff9900;
-}
-
 @media (max-width: 768px) {
   aside {
     top: 60px;
@@ -224,11 +202,6 @@ ul li a.active {
     height: 44px;
   }
 
-  .Categories {
-    padding: 0.75rem;
-    font-size: 1.1rem;
-  }
-
   ul li a {
     padding: 0.75rem;
     white-space: normal;
@@ -244,10 +217,6 @@ ul li a.active {
 @media (max-width: 480px) {
   aside {
     max-width: 280px;
-  }
-
-  .Categories {
-    font-size: 1rem;
   }
 
   ul li a {

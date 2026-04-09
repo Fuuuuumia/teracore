@@ -40,12 +40,10 @@
 {/if}
 
 <style>
-.wc {
-  position: relative;
-  border-bottom: 1px dotted #6b7280;
-  color: #1e3a8a; 
-  text-decoration: none;
+.wc{
   cursor: help;
+  font-weight: 500;
+  position: relative;
 }
 
 .popup {
