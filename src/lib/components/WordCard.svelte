@@ -1,37 +1,82 @@
 <script lang="ts">
-  import { getTermByKana } from "$lib/dictionary";
   import { resolve } from "$app/paths";
+  import { getTermByKana } from "$lib/dictionary";
 
+  //Word検索キー格納・検索結果格納・リンク解決
   let { kana } = $props();
-
   const term = $derived(getTermByKana(kana));
-
-  const resolveRouteOrUrl = (routeOrUrl: string) => {
+  const resolveRouteOrUrl =(routeOrUrl: string) => {
     if(routeOrUrl.startsWith("https://") || routeOrUrl.startsWith("http://")) 
       return routeOrUrl;
     else return resolve(routeOrUrl as any);
   }
+
+  //ポップアップウィンドウ位置計算(wordEl宣言部分要修正かもしれん)
+
+  let popupEl = $state<HTMLSpanElement | null>(null);
+  let wordEl = $state<HTMLAnchorElement | null>(null);
+  
+  let popupLeft = $state(0);
+  let showBelow = $state(false);
+  const popupWidth = 280;
+  const headerHeight = 60;
+  const safeMargin = 30;
+
+  function updatePopupPosition() {
+    if (!wordEl) return;
+    if (!popupEl) return;
+
+    const popupHeight = popupEl.getBoundingClientRect().height;
+    const rect = wordEl.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+
+    const diffWidth = screenWidth - rect.left -popupWidth - safeMargin;
+    const diffHeight = rect.top - headerHeight - popupHeight - safeMargin
+
+    if (diffWidth < 0) {
+      popupLeft = diffWidth ;
+    } else {
+      popupLeft = 0;
+    }
+
+    if (diffHeight < 0) {
+      showBelow = true;
+    } else {
+      showBelow = false;
+    }
+  }
 </script>
 
 {#if term}
-<a class="wc" href={resolveRouteOrUrl(term.routeOrUrl)}>
+<a 
+  class="wc" 
+  href={resolveRouteOrUrl(term.routeOrUrl)}
+  bind:this={wordEl}
+  onmouseenter={updatePopupPosition}
+>
   {term.name}
 
-  <span class="popup">
+  <span 
+    class="popup"
+    bind:this={popupEl}
+    class:below={showBelow}
+    style:left={`${popupLeft}px`}
+    style:width={`${popupWidth}px`}
+  >
     <strong>{term.name}</strong>
 
     {#if term.description}
-      <div class="desc">
+      <span class="desc">
         {term.description}
-      </div>
+      </span>
     {/if}
 
     {#if term.tags.length}
-      <div class="tags">
+      <span class="tags">
         {#each term.tags as tag}
           <span class="tag">{tag.name}</span>
         {/each}
-      </div>
+      </span>
     {/if}
   </span>
 </a>
@@ -47,30 +92,37 @@
 }
 
 .popup {
+  /*表示位置設定*/
   position: absolute;
   bottom: 140%;
   left: 0;
 
-  width: 280px;
-  padding: 0.8rem 1rem;
-
-  background: #ffffff;
-  color: #111827;
-
+  /*テキストスタイル*/
   font-size: 0.85rem;
   line-height: 1.45;
+  color: #111827;
 
+  /*ポップアップの見た目*/
+  padding: 0.8rem 1rem;
+  background: #ffffff;
   border-radius: 10px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 
+  /*標準状態(透過)*/
   opacity: 0;
   pointer-events: none;
+
+  /*表示アニメーション+初期値*/
   transform: translateY(8px);
   transition: opacity 0.15s ease, transform 0.15s ease;
   z-index: 50;
 }
 
+.popup.below {
+  bottom: auto;
+  top: 140%;
+}
 .wc:hover .popup {
   opacity: 1;
   transform: translateY(0);
@@ -85,10 +137,12 @@
 .desc {
   margin-top: 0.35rem;
   color: #374151;
+  display: block;
 }
 
 .tags {
   margin-top: 0.55rem;
+  display: block;
 }
 
 .tag {
