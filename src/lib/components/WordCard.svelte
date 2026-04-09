@@ -12,20 +12,37 @@
   }
 
   //ポップアップウィンドウ位置計算(wordEl宣言部分要修正かもしれん)
-  let popupLeft = $state(0);
-  const popupWidth = 280;
+
+  let popupEl = $state<HTMLSpanElement | null>(null);
   let wordEl = $state<HTMLAnchorElement | null>(null);
+  
+  let popupLeft = $state(0);
+  let showBelow = $state(false);
+  const popupWidth = 280;
+  const headerHeight = 60;
+  const safeMargin = 30;
+
   function updatePopupPosition() {
     if (!wordEl) return;
+    if (!popupEl) return;
+
+    const popupHeight = popupEl.getBoundingClientRect().height;
     const rect = wordEl.getBoundingClientRect();
     const screenWidth = window.innerWidth;
 
-    const diff = screenWidth - rect.left -popupWidth;
+    const diffWidth = screenWidth - rect.left -popupWidth - safeMargin;
+    const diffHeight = rect.top - headerHeight - popupHeight - safeMargin
 
-    if (diff < 0) {
-      popupLeft = diff - 30;
+    if (diffWidth < 0) {
+      popupLeft = diffWidth ;
     } else {
       popupLeft = 0;
+    }
+
+    if (diffHeight < 0) {
+      showBelow = true;
+    } else {
+      showBelow = false;
     }
   }
 </script>
@@ -41,6 +58,8 @@
 
   <span 
     class="popup"
+    bind:this={popupEl}
+    class:below={showBelow}
     style:left={`${popupLeft}px`}
     style:width={`${popupWidth}px`}
   >
@@ -100,6 +119,10 @@
   z-index: 50;
 }
 
+.popup.below {
+  bottom: auto;
+  top: 140%;
+}
 .wc:hover .popup {
   opacity: 1;
   transform: translateY(0);
