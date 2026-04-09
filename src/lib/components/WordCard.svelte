@@ -14,7 +14,7 @@
   //ポップアップウィンドウ位置計算(wordEl宣言部分要修正かもしれん)
   let popupLeft = $state(0);
   const popupWidth = 280;
-  let wordEl: HTMLAnchorElement | null = null;
+  let wordEl = $state<HTMLAnchorElement | null>(null);
   function updatePopupPosition() {
     const rect = wordEl.getBoundingClientRect();
     const screenWidth = window.innerWidth;
