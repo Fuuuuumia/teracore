@@ -16,6 +16,7 @@
   const popupWidth = 280;
   let wordEl = $state<HTMLAnchorElement | null>(null);
   function updatePopupPosition() {
+    if (!wordEl) return;
     const rect = wordEl.getBoundingClientRect();
     const screenWidth = window.innerWidth;
 
