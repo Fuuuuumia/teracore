@@ -41,12 +41,8 @@ export const categories: Category[] = [
   { id: '03-AudioRefine', name: '音声技術Ⅰ / 音声技術Ⅱ', path: '/blog/03-AudioRefine'},
   { id: '03-Mastering', name: '音声技術Ⅲ / DTM', path: '/blog/03-Mastering'},
   {
-    id: '04-aviutlscript',
-    name: 'AviUtlスクリプト（Lua）',
-    path: '/blog/04-aviutlscript',
-    detail:
-      `AviUtlスクリプトの読み書きについて解説します。`,
-    tags: ["プログラミング", "動画編集"]
+    id: '04-aviutlscript', name: 'AviUtlスクリプト（Lua）', path: '/blog/04-aviutlscript', tags: ["プログラミング", "動画編集"], 
+    detail: `AviUtlスクリプト関連資料集` 
   },
 ];
 

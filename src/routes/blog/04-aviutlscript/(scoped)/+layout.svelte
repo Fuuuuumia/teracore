@@ -19,6 +19,15 @@
   });
 </script>
 
+<!--
+記事フォルダと同階層に img フォルダを作成して
+01-01.png のようなファイル名にする
+<script>
+  const imgs = Object.values(import.meta.glob('../img/01*.png', { eager: true, import: 'default' })).sort();
+</script>
+<img src={imgs[0]} alt="記事画像" />
+-->
+
 <main class = "simplelog">
   <div class="bg"></div>
   <div class="content">
@@ -34,9 +43,16 @@
   @import url('https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css');
 
   :root{
-    --bg-color: #fdfdfd;
+/*
+    --bg-color: #fff;
     --main-color: #003160;
     --sub-color: #e6edf5;
+    --hover-color: #ff9900;
+*/
+    --bg-color: #fdfdfd;
+    --main-color: #474a4f;
+    --sub-color: #ecedf0;
+    --hover-color: #425a9e;
     --p-color: #111;
     --th-color: #fff;
 
@@ -144,24 +160,19 @@
   .simplelog :global(a){
     color: var(--main-color);
     text-decoration: none;
-    transition: 0.2s ease;
+    transition: color 0.2s, border-color 0.2s;
     border-color: var(--main-color);
   }
   .simplelog :global(a:not(.pager a)) {
-    border-bottom: 1px solid var(--main-color);
+    border-bottom: 1px solid;
+    padding: 0 2px;
   }
   .simplelog :global(.pager a) {
     background: var(--bg-color);
   }
-  .simplelog :global(a:not(.pager a)) {
-    padding: 0 2px;
-  }
   .simplelog :global(a:hover) {
-    background: var(--main-color);
-    color: var(--th-color);
-  }
-  .simplelog :global(a:not(.pager a):hover) {
-    border-radius: 0.25rem;
+    color: var(--hover-color);
+    border-color: var(--hover-color) !important;
   }
   
   .simplelog :global(code) {
@@ -169,6 +180,7 @@
     padding: 0.2rem 0.3rem;
     background: var(--sub-color);
     border-radius: 0.25rem;
+    font-family: Menlo,Monaco,Consolas,"Andale Mono","Ubuntu Mono","Courier New",monospace;
   }
   .simplelog :global(code:not(pre code)){
     margin: 0 0.2rem;
@@ -191,7 +203,7 @@
     margin: 2rem 0;
     color: color-mix(in srgb, currentColor 80%, var(--bg-color));
     overflow: hidden;
-    background-color: color-mix(in srgb, var(--main-color) 20%, var(--bg-color));
+    background-color: color-mix(in srgb, var(--sub-color) 80%, var(--bg-color));
     border-left: 2px solid var(--main-color);
   }
 
@@ -200,8 +212,8 @@
     object-fit: contain;
     width: auto;
     height: auto;
-    max-width: clamp(0px, 100%, 500px);
-    max-height: calc(0px, 100%, 500px);
+    max-width: clamp(0px, 100%, 600px);
+    max-height: calc(0px, 100%, 600px);
     margin: 2.5rem auto;
     border-radius: 12px;
     box-shadow: 0 0 1rem color-mix(in srgb, var(--main-color) 40%, transparent);
