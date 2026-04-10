@@ -95,7 +95,7 @@
   /*表示位置設定*/
   position: absolute;
   bottom: 140%;
-  left: 0;
+  
 
   /*テキストスタイル*/
   font-size: 0.85rem;
