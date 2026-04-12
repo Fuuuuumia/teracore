@@ -11,4 +11,13 @@ export const articles: Article[] = [
         date: '2026-04-12',
         index: 1,
     },
+    {
+        id: '02-obs_studio-02',
+        cat: '02-obs_studio',
+        path: '/blog/02-obs_studio/02-add_sources',
+        title: '2.ソースの追加',
+        ath: '02',
+        date: '2026-04-12',
+        index: 2,
+    },
 ];
