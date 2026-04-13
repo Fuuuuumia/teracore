@@ -39,7 +39,7 @@ export const categories: Category[] = [
     detail: `知識ゼロ~基本のシステム構築までに必要な知識を整理して説明します！`,
     tags: ["音響", "舞台演出"]
   },
-  { id: '02-cat2', name: 'デジタルケーブル基礎', path: '/blog/02-digitalcable'},
+  { id: '02-digital_cable', name: 'デジタルケーブル基礎', path: '/blog/02-digital_cable'},
   { id: '03-DAW', name: '音楽ソフトのつかいかた', path: '/blog/03-DAW'},
   { id: '03-AudioRefine', name: '音声技術Ⅰ / 音声技術Ⅱ', path: '/blog/03-AudioRefine'},
   { id: '03-Mastering', name: '音声技術Ⅲ / DTM', path: '/blog/03-Mastering'},
@@ -47,6 +47,7 @@ export const categories: Category[] = [
     id: '04-aviutlscript', name: 'AviUtlスクリプト（Lua）', path: '/blog/04-aviutlscript', tags: ["プログラミング", "動画編集"], 
     detail: `AviUtlスクリプト関連資料集` 
   },
+  {id: '02-obs_studio', name: 'OBS Studio入門', path: '/blog/02-obs_studio'},
 ];
 
 let articles: Article[]= [];

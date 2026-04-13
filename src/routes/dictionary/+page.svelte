@@ -30,58 +30,60 @@
     }
 </script>
 
-<h1 class="title">teraCore dictionary</h1>
-<div class="listType-menu">
-    <button type="button" onclick={()=>{listType = "terms"}} style="{listType === "terms"? "font-weight: 600; color: #003160;": ""}">用語一覧</button>
-    <button type="button" onclick={()=>{listType = "tags"}} style="{listType === "tags"? "font-weight: 600; color: #003160;": ""}">タグ一覧</button>
-</div>
-{#if listType === "terms"}
-    <div class="filter-row">
-        <div class="filter-input">
-            <label for="ath-filter">タグ</label>
-            <select id="ath-filter" bind:value={selectedTag}>
-                <option value="all">すべて</option>
-                {#each sortedTags as tag}
-                    <option value={tag.name}>{tag.name}</option>
+<div class="container">
+    <h1 class="title">teraCore dictionary</h1>
+    <div class="listType-menu">
+        <button type="button" onclick={()=>{listType = "terms"}} style="{listType === "terms"? "font-weight: 600; color: #003160;": ""}">用語一覧</button>
+        <button type="button" onclick={()=>{listType = "tags"}} style="{listType === "tags"? "font-weight: 600; color: #003160;": ""}">タグ一覧</button>
+    </div>
+    {#if listType === "terms"}
+        <div class="filter-row">
+            <div class="filter-input">
+                <label for="ath-filter">タグ</label>
+                <select id="ath-filter" bind:value={selectedTag}>
+                    <option value="all">すべて</option>
+                    {#each sortedTags as tag}
+                        <option value={tag.name}>{tag.name}</option>
+                    {/each}
+                </select>
+            </div>
+            <button class="reset-btn" onclick={()=>{selectedTag="all";}}>リセット</button>
+        </div>
+        <div class="toc">
+            <p class="mokuji">目次</p>
+            <div class="content">
+                {#each adan as char}
+                    <p><a href="#{char}">{char}行</a></p>
                 {/each}
-            </select>
+            </div>
         </div>
-        <button class="reset-btn" onclick={()=>{selectedTag="all";}}>リセット</button>
-    </div>
-    <div class="toc">
-        <p class="mokuji">目次</p>
-        <div class="content">
+        <div class="list">
             {#each adan as char}
-                <p><a href="#{char}">{char}行</a></p>
+                <h2 id={char} class="scroll-target">{char}行</h2>
+                {#each sortedTerms.filter((term)=>isKanaBetween(term.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as term}
+                    <p><a href={resolveRouteOrUrl(term.routeOrUrl)}>{term.name}</a></p>
+                {/each}
             {/each}
         </div>
-    </div>
-    <div class="list">
-        {#each adan as char}
-            <h2 id={char} class="scroll-target">{char}行</h2>
-            {#each sortedTerms.filter((term)=>isKanaBetween(term.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as term}
-                <p><a href={resolveRouteOrUrl(term.routeOrUrl)}>{term.name}</a></p>
-            {/each}
-        {/each}
-    </div>
-{:else}
-    <div class="toc">
-        <p class="mokuji">目次</p>
-        <div class="content">
+    {:else}
+        <div class="toc">
+            <p class="mokuji">目次</p>
+            <div class="content">
+                {#each adan as char}
+                    <p><a href="#{char}">{char}行</a></p>
+                {/each}
+            </div>
+        </div>
+        <div class="list">
             {#each adan as char}
-                <p><a href="#{char}">{char}行</a></p>
+                <h2 id={char} class="scroll-target">{char}行</h2>
+                {#each sortedTags.filter((tag)=>isKanaBetween(tag.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as tag}
+                    <div><button type="button" onclick={()=>{selectedTag=tag.name; listType="terms"}}>{tag.name}</button></div>
+                {/each}
             {/each}
         </div>
-    </div>
-    <div class="list">
-        {#each adan as char}
-            <h2 id={char} class="scroll-target">{char}行</h2>
-            {#each sortedTags.filter((tag)=>isKanaBetween(tag.kana, {start: char, end: adan.indexOf(char) < adan.length - 1? adan[adan.indexOf(char) + 1]: undefined})) as tag}
-                <div><button type="button" onclick={()=>{selectedTag=tag.name; listType="terms"}}>{tag.name}</button></div>
-            {/each}
-        {/each}
-    </div>
-{/if}
+    {/if}
+</div>
 
 <style>
     h1 {
@@ -92,6 +94,11 @@
         unicode-bidi: isolate;
         margin-bottom: 0.5rem;
     }
+    .container{
+        margin-top: 2vw;
+        margin-right: 5vw;
+        margin-left: 5vw;
+    } 
     .scroll-target{
         scroll-margin-top: 60px;
     }
@@ -193,5 +200,13 @@
         font-weight: 400;
         color: gray;
         transition: 0.5s;
+    }
+
+    @media (max-width: 768px) {
+        .container{
+            margin-top: 0vw;
+            margin-right: 0vw;
+            margin-left: 0vw;
+        }
     }
 </style>
