@@ -165,11 +165,7 @@
   border-bottom: 1px dashed #dc2626;
 }
 
-@media (max-width: 768px) {
-  .popup {
-    display: none;
-  }
-}
+
 
 @media (max-width: 480px) {
   .popup {
