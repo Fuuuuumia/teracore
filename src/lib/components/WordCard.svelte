@@ -1,6 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { getTermByKana } from "$lib/dictionary";
+  import { onMount } from "svelte";
 
   //Word検索キー格納・検索結果格納・リンク解決
   let { kana } = $props();
@@ -11,7 +12,14 @@
     else return resolve(routeOrUrl as any);
   }
 
-  //ポップアップウィンドウ位置計算
+  //ポップアップウィンドウ描画切替
+  let isMobile = $state(false);
+  
+  onMount(() => {
+    isMobile =   !window.matchMedia("(hover: hover)").matches;
+  });
+
+    //ポップアップウィンドウ位置計算
 
   let popupEl = $state<HTMLSpanElement | null>(null);
   let wordEl = $state<HTMLAnchorElement | null>(null);
@@ -51,33 +59,35 @@
   class="wc" 
   href={resolveRouteOrUrl(term.routeOrUrl)}
   bind:this={wordEl}
-  onmouseenter={updatePopupPosition}
+  onmouseenter={!isMobile ? updatePopupPosition : undefined}
 >
   {term.name}
 
-  <span 
-    class="popup"
-    bind:this={popupEl}
-    class:above={showAbove}
-    style:left={`${popupLeft}px`}
-    style:width={`${popupWidth}px`}
-  >
-    <strong>{term.name}</strong>
+  {#if !isMobile}
+    <span 
+      class="popup"
+      bind:this={popupEl}
+      class:above={showAbove}
+      style:left={`${popupLeft}px`}
+      style:width={`${popupWidth}px`}
+    >
+      <strong>{term.name}</strong>
 
-    {#if term.description}
-      <span class="desc">
-        {term.description}
-      </span>
-    {/if}
+      {#if term.description}
+        <span class="desc">
+          {term.description}
+        </span>
+      {/if}
 
-    {#if term.tags.length}
-      <span class="tags">
-        {#each term.tags as tag}
-          <span class="tag">{tag.name}</span>
-        {/each}
-      </span>
-    {/if}
-  </span>
+      {#if term.tags.length}
+        <span class="tags">
+          {#each term.tags as tag}
+            <span class="tag">{tag.name}</span>
+          {/each}
+        </span>
+      {/if}
+    </span>
+  {/if}
 </a>
 {:else}
 <span class="wc-missing">{kana}</span>
@@ -139,7 +149,7 @@
 .desc {
   color: #374151;
   display: block;
-  text-indent: 1;
+  text-indent: 1rem;
 }
 
 .tags {
@@ -165,11 +175,4 @@
   border-bottom: 1px dashed #dc2626;
 }
 
-
-
-@media (max-width: 480px) {
-  .popup {
-    display: none;
-  }
-}
 </style>
